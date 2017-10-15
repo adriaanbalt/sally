@@ -1,0 +1,7 @@
+.env
+node_modules
+npm-debug.log
+.DS_Store
+public/js
+.DS_Store
+.sass-cache
