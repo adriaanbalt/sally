@@ -18,7 +18,6 @@ const Market = props => {
       <div>
         <button onClick={() => props.switchExchange('gemini')}>Gemini</button>
         <button onClick={() => props.switchExchange('bittrex')}>Bittrex</button>
-        <button onClick={() => props.switchExchange('poloniex')}>Poloniex</button>
       </div>
       {
         props.whichExchange == "gemini"
@@ -29,11 +28,6 @@ const Market = props => {
         props.whichExchange == "bittrex"
         &&
         <Bittrex />
-      }
-      {
-        props.whichExchange == "poloniex"
-        &&
-        <Poloniex />
       }
     </div>
   )
