@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import homeReducer from './home/reducer'
-import geminiReducer from './gemini/reducer'
-import bittrexReducer from './bittrex/reducer'
-import poloniexReducer from './poloniex/reducer'
+import marketReducer from './market/reducer'
+import geminiReducer from './exchanges/gemini/reducer'
+import bittrexReducer from './exchanges/bittrex/reducer'
+import poloniexReducer from './exchanges/poloniex/reducer'
 
 
 export default combineReducers({
   routing: routerReducer,
-  homeReducer,
+  marketReducer,
   geminiReducer,
   bittrexReducer,
   poloniexReducer
