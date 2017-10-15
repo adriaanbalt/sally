@@ -1,5 +1,4 @@
-@import 'constants';
-@import 'styles/font';
+@import 'styles/index';
 
 body {
   margin: 0;
@@ -36,7 +35,6 @@ h1 {
 
 .logo {
 	position: relative;
-    float: left;
-    width: 60px;
-    
+  float: left;
+  width: 60px;
 }
