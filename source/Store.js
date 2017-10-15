@@ -3,15 +3,15 @@ import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
 import rootReducer from './reducers'
-import createSocketIoMiddleware from 'redux-socket.io'
-import io from 'socket.io-client'
+// import createSocketIoMiddleware from 'redux-socket.io'
+// import io from 'socket.io-client'
 
-let socketURL = __HEROKU__ == 'true' ? `https://sally-sells.herokuapp.com` : `http://localhost:5555`
-console.log ( 'socketURL', __PORT__, socketURL )
+// let socketURL = __HEROKU__ == 'true' ? `https://sally-sells.herokuapp.com` : `http://localhost:5555`
+// console.log ( 'socketURL', __PORT__, socketURL )
 
 
-let socket = io(socketURL);
-let socketIoMiddleware = createSocketIoMiddleware(socket, "server/");
+// let socket = io(socketURL);
+// let socketIoMiddleware = createSocketIoMiddleware(socket, "server/");
 
 export const history = createHistory()
 
@@ -20,7 +20,7 @@ const enhancers = []
 const middleware = [
   thunk,
   routerMiddleware(history),
-  socketIoMiddleware
+  // socketIoMiddleware
 ]
 
 if (process.env.NODE_ENV === 'development') {
