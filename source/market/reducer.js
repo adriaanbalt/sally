@@ -1,4 +1,4 @@
-export const SWITCH_EXCHANGE = 'SWITCH_EXCHANGE'
+import { SWITCH_EXCHANGE } from './actions'
 
 const initialState = {
   whichExchange: 'gemini'
@@ -17,16 +17,3 @@ export default (state = initialState, action) => {
       return state
   }
 }
-
-
-
-export const switchExchange = ( newExchange ) => {
-  return dispatch => {
-    dispatch({
-      type: SWITCH_EXCHANGE,
-      whichExchange: newExchange
-    })
-  }
-}
-
-

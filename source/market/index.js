@@ -1,18 +1,16 @@
-import './indecx.scss'
+import './index.scss'
 import React from 'react'
 import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
-import io from 'socket.io-client'
 
 import {
   switchExchange
-} from './reducer'
+} from './actions'
 import Gemini from '../exchanges/gemini'
 import Bittrex from '../exchanges/bittrex'
 import Poloniex from '../exchanges/poloniex'
-
 
 const Market = props => {
   return(
@@ -42,7 +40,7 @@ const Market = props => {
 }
 
 const mapStateToProps = state => ({
-  whichExchange: state.homeReducer.whichExchange
+  whichExchange: state.marketReducer.whichExchange
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
