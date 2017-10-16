@@ -14,11 +14,9 @@ export const getMarket = () => async ( dispatch, getState ) => {
   })
 }
 
-export const switchExchange = ( newExchange ) => {
-  return dispatch => {
-    dispatch({
-      type: SWITCH_EXCHANGE,
-      whichExchange: newExchange
-    })
-  }
+export const switchExchange = ( newExchange ) => dispatch => {
+  dispatch({
+    type: SWITCH_EXCHANGE,
+    whichExchange: newExchange
+  })
 }
