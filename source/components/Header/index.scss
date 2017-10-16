@@ -1,0 +1,27 @@
+@import '../../styles/mixins';
+
+header {
+	.container-logo {
+		@include clearFix();
+	}
+  .anchor-home {
+    padding: 0 .5em 0 0;
+    float: left;
+    display: block;
+  }
+  h1 {
+  	line-height: 68px;
+  }
+	.logo {
+		position: relative;
+	  width: 60px;
+	}
+	nav {
+		a {
+			padding: .25em .25em;
+			&:first-child{
+				padding: .25em .25em .25em 0;
+			}
+		}
+	}
+}
