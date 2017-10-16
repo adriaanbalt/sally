@@ -1,0 +1,9 @@
+@import '../../styles/index';
+
+#drawer {
+	position: absolute;
+	left: 0;
+	width: 80%;
+	border-right: $color-white;
+	background-color: $color-black;
+}
