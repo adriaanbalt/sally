@@ -24,6 +24,7 @@ const config = {
     ],
     alias: {
       'node_modules': `${NODE_MODULES_PATH}`,
+      'source': `${SOURCE_PATH}`,
       'components': `${SOURCE_PATH}/components`,
       'styles': `${SOURCE_PATH}`,
     }
