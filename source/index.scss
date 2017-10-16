@@ -16,25 +16,5 @@ body {
 }
 
 .wrapper {
-	margin: 1em;
-}
-
-header {
-	a {
-		padding: 1em .5em;
-		&:first-child {
-			padding: 1em .5em 1em 0;
-		}
-	}
-}
-
-h1 {
-	color: #fff;
-    padding: 14px 0;
-}
-
-.logo {
-	position: relative;
-  float: left;
-  width: 60px;
+  padding: $padding;
 }
