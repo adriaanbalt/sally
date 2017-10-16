@@ -5,7 +5,7 @@ import Constants from './constants'
 // console.log ( "Constants", API, API_VERSION )
 const apiRequest = o => {
   let endpoint = `${Constants.API}/${Constants.API_VERSION}${o.route}`
-  console.log( 'apiRequest', o)
+  // console.log( 'apiRequest', o)
   o.params = o.params || [];
   //if(o.body && ['get','del'].indexOf(o.method)!==-1) throw new Error("get and delete requests can't have a body with superagent library");
   o.body = o.body || {};
