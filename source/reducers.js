@@ -13,5 +13,6 @@ export default combineReducers({
   geminiReducer,
   bittrexReducer,
   poloniexReducer,
+  detailsReducer,
   headerReducer,
 })
