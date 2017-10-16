@@ -21,12 +21,14 @@ const Poloniex = props => {
       <Columns changeViews={props.changeViews} views={props.views}/>
       <div>
         {
-          Object.keys(props.data).sort( (a,b) => {
-            if(a < b) return 1;
-            if(a > b) return -1;
+          props.data
+          &&
+          props.data.sort( (a,b) => {
+            if(a.symbol < b.symbol) return 1;
+            if(a.symbol > b.symbol) return -1;
             return 0;
-          }).map( (coinName, index) => {
-            return <Coin key={`${coinName}-${index}`} changeViews={props.changeViews} views={props.views} name={coinName} values={props.data[coinName].values}/>
+          }).map( (coin, index) => {
+            return <Coin key={`${coin.symbol}-${index}`} {...coin}/>
           })
         }
       </div>
@@ -36,7 +38,6 @@ const Poloniex = props => {
 
 const mapStateToProps = state => ({
   views: state.poloniexReducer.views,
-  data: state.poloniexReducer.data,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

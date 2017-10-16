@@ -1,17 +1,15 @@
 import React from 'react';
 import classNames from 'classnames'
+import { Link } from 'react-router-dom'
 
 const Coin = (props) => {
-	console.log ( "Coin", props )
 	return (
-		<div className='row columns'>
-			<span className="name">{`${props.name}`}</span>
+		<Link to={`/${props.symbol}`} className='row columns'>
+			<span className="name">{ props.symbol }</span>
 			<div className="quantities">
-				{
-					props.views.options.map( (view,key) => <span key={`view-${key}`} onClick={ props.changeViews } className={`quantity ${view.id}${ props.views.current == view.id ? ' is-active' : '' }`}>{ props.values[5] }</span> )
-				}
+				<span onClick={ props.changeViews } className={`currentPrice`}>{ props.currentPrice }</span>
 			</div>
-		</div>
+		</Link>
 	)
 }
 

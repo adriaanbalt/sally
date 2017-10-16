@@ -3,11 +3,11 @@ import { CHANGE_VIEW, SELL, BUY, POLONIEX } from './actions'
 const initialState = {
   data: [],
   views: {
-    current: "Price",
+    current: "Current Price",
     options: [
       {
-        id: 'Price',
-        label: 'Price'
+        id: 'currentPrice',
+        label: 'Current Price'
       }
     ]
   },
