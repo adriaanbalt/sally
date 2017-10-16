@@ -4,7 +4,7 @@ import marketReducer from './market/reducer'
 import geminiReducer from './exchanges/gemini/reducer'
 import bittrexReducer from './exchanges/bittrex/reducer'
 import poloniexReducer from './exchanges/poloniex/reducer'
-import detailsReducer from './exchanges/details/reducer'
+import detailsReducer from './details/reducer'
 
 export default combineReducers({
   routing: routerReducer,
