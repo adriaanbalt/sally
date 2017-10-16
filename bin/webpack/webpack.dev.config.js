@@ -13,7 +13,8 @@ const config = {
   entry: ['babel-polyfill',`${SOURCE_PATH}/index.js`],
   output: {
     path: DIST_PATH,
-    filename: 'js/main.js'
+    filename: 'js/main.js',
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.json'],
@@ -58,17 +59,9 @@ const config = {
   ],
   devServer: {
     contentBase: DIST_PATH,
-    inline: true,
     publicPath: 'http://localhost:5000',
     port: 5000,
-    proxy: {
-      '/api/**/*': {
-        disableHostCheck: false,
-        target: 'http://localhost:5555',
-        toProxy: true,
-        changeOrigin: true
-      }
-    }
+    historyApiFallback: true
   },
   devtool: 'eval-source-map'
 }
