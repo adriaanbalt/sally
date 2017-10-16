@@ -1,14 +1,15 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom'
 
-const Nav = () => (
+const Header = () => (
   <header>
     <img className="logo" src="/logo.png" />
     <h1>Sally</h1>
+    <Link to="/about">About</Link>
   </header>
 )
 
-export default Nav
+export default Header
 
 
 // <Link to="/">Home</Link>
