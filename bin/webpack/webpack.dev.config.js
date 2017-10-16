@@ -10,7 +10,7 @@ const SOURCE_PATH = path.join(__dirname, '../../source' )
 console.log ( 'ROOT_PATH', ROOT_PATH )
 
 const config = {
-  entry: `${SOURCE_PATH}/index.js`,
+  entry: ['babel-polyfill',`${SOURCE_PATH}/index.js`],
   output: {
     path: DIST_PATH,
     filename: 'js/main.js'
@@ -54,13 +54,7 @@ const config = {
     ]
   },
   plugins: [
-    new webpack.NamedModulesPlugin(),
-    new webpack.DefinePlugin({
-      '__PORT__': JSON.stringify(process.env.PORT),
-      '__HEROKU__': JSON.stringify(process.env.HEROKU),
-      '__BITTREX_KEY__': JSON.stringify(process.env.BITTREX_KEY),
-      '__BITTREX_SECRET__': JSON.stringify(process.env.BITTREX_SECRET)
-    }),
+    new webpack.NamedModulesPlugin()
   ],
   devServer: {
     contentBase: DIST_PATH,
