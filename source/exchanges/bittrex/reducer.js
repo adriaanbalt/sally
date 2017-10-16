@@ -8,7 +8,7 @@ const initialState = {
   data: [],
   coins: [],
   views: {
-    current: "Current Price",
+    current: 'currentPrice',
     options: [
       {
         id: 'currentPrice',

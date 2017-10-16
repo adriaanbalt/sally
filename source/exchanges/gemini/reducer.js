@@ -3,19 +3,11 @@ import { CHANGE_VIEW, SELL, BUY, GEMINI } from './actions'
 const initialState = {
   data: [],
   views: {
-    current: "currentPrice",
+    current: 'currentPrice',
     options: [
       {
-        id:"bid-sell",
-        label:"bid sell",
-      },
-      {
-        id:"bid-buy",
-        label:"bid buy",
-      },
-      {
-        id:"delta",
-        label:"delta",
+        id: 'currentPrice',
+        label: 'Current Price'
       }
     ]
   },
