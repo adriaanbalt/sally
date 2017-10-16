@@ -16,9 +16,4 @@ const Header = ( props ) => (
     </nav>
   </header>
 )
-
 export default Header
-
-
-// <Link to="/">Home</Link>
-// <Link to="/about-us">About</Link>
