@@ -21,7 +21,17 @@ class Details extends Component {
         {
           this.props.coin
           &&
-          <h1>{ this.props.match.params.symbol } : { this.props.coin.currentPrice }</h1>
+          <h1>{ this.props.match.params.symbol }</h1>
+        }
+        {
+          this.props.coin
+          &&
+          <p>Current Price: { this.props.coin.currentPrice }</p>
+        }
+        {
+          this.props.coin
+          &&
+          <p>24 Hour Percentage: { this.props.coin.percentage }</p>
         }
       </section>
     )
