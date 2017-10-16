@@ -8,6 +8,7 @@ import Nav from 'components/nav'
 import Footer from 'components/footer'
 import Market from './market'
 import About from './about'
+import Details from './exchanges/details'
 
 import './index.scss'
 
@@ -19,8 +20,9 @@ render(
           <Nav />
           <Footer />
           <main>
-            <Route exact path="/" component={Market} />
-            <Route exact path="/about-us" component={About} />
+            <Route path="/" component={Market} />
+            <Route path="/about" component={About} />
+            <Route path="/:symbol" component={Details} />
           </main>
         </div>
       </main>
