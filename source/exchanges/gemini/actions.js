@@ -6,7 +6,6 @@ export const GEMINI = 'GEMINI'
 
 export const getMarket = () => async ( dispatch, getState ) => {
   let res = await get('/summary/crypto')
-  console.log('res.body', res.body)
   dispatch({
     type: GEMINI,
     data: res.body
