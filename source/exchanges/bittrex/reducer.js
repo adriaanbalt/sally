@@ -8,43 +8,11 @@ const initialState = {
   data: [],
   coins: [],
   views: {
-    current: "Ask",
+    current: "Current Price",
     options: [
       {
-        id: 'Ask',
-        label: 'Ask'
-      },
-      {
-        id: 'Bid',
-        label: 'Bid'
-      },
-      {
-        id: 'Last',
-        label: 'Last'
-      },
-      {
-        id: 'High',
-        label: 'High'
-      },
-      {
-        id: 'Low',
-        label: 'Low'
-      },
-      {
-        id: 'BaseVolume',
-        label: 'Base Volume'
-      },
-      {
-        id: 'Volume',
-        label: 'Volume'
-      },
-      {
-        id: 'OpenBuyOrders',
-        label: 'Open Buy Orders'
-      },
-      {
-        id: 'OpenSellOrders',
-        label: 'Open Sell Orders'
+        id: 'currentPrice',
+        label: 'Current Price'
       }
     ]
   },

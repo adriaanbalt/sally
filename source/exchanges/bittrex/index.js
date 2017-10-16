@@ -14,18 +14,21 @@ import Columns from './components/Columns'
 import Coin from './components/Coin'
 
 const Bittrex = props => {
+  console.log( 'bittrex', props )
   return(
     <div>
       <p>Based on data from the Bittrex exchange</p>
       <Columns changeViews={props.changeViews} views={props.views}/>
       <div>
         {
-          Object.keys(props.coins).sort( (a,b) => {
-            if(a < b) return -1;
-            if(a > b) return 1;
+          props.data
+          &&
+          props.data.sort( (a,b) => {
+            if(a.symbol < b.symbol) return 1;
+            if(a.symbol > b.symbol) return -1;
             return 0;
-          }).map( (coinName, index) => {
-            return <Coin key={`${coinName}-${index}`} changeViews={props.changeViews} views={props.views} name={coinName} values={props.coins[coinName].values}/>
+          }).map( (coin, index) => {
+            return <Coin key={`${coin.symbol}-${index}`} {...coin}/>
           })
         }
       </div>
@@ -34,9 +37,7 @@ const Bittrex = props => {
 }
 
 const mapStateToProps = state => ({
-  views: state.bittrexReducer.views,
-  data: state.bittrexReducer.data,
-  coins: state.bittrexReducer.coins,
+  views: state.bittrexReducer.views
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
