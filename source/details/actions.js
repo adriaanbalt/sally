@@ -1,4 +1,4 @@
-import { get } from '../../API'
+import { get } from '../API'
 export const SET_DETAILS = 'SET_DETAILS'
 
 export const setSummaryBySymbol = ( symbol ) => async ( dispatch, getState ) => {

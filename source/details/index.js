@@ -17,9 +17,13 @@ class Details extends Component {
   render() {
     console.log('Details render', this.props )
     return(
-      <div>
-        <h1>{ this.props.match.params.symbol } : { this.props.coin.currentPrice }</h1>
-      </div>
+      <section id="about">
+        {
+          this.props.coin
+          &&
+          <h1>{ this.props.match.params.symbol } : { this.props.coin.currentPrice }</h1>
+        }
+      </section>
     )
   }
 }
