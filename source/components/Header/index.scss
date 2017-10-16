@@ -3,11 +3,16 @@
 header {
 	.container-logo {
 		@include clearFix();
+		position: relative;
 	}
   .anchor-home {
     padding: 0 .5em 0 0;
-    float: left;
     display: block;
+    text-align: center;
+  }
+  .c-hamburger {
+  	position: absolute;
+  	top: 0;
   }
   h1 {
   	line-height: 68px;
