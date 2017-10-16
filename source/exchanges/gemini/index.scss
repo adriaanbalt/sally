@@ -6,10 +6,12 @@
 	}
 }
 .columns-header, .row {
+	display: block;
 	height: $row-height;
 	position: relative;
 	padding: 20px 0;
 	border-bottom: 1px $color-font solid;
+	color: $color-font;
 	&:hover {
 		font-weight: 700;
 	}

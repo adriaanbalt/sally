@@ -16,7 +16,16 @@ import Coin from './components/Coin'
 
 class Gemini extends Component {
   componentWillMount() {
-    console.log( "Gemini.componentWillMount")
+    this.poll()
+  }
+
+  componentWillUnmount(){
+    console.log('componentWillUnmount')
+    clearInterval(this.interval)
+  }
+
+  poll() {
+    this.interval =setInterval( this.props.getMarket, 10000 )
     this.props.getMarket()
   }
 
@@ -24,15 +33,17 @@ class Gemini extends Component {
     return(
       <div>
         <p>Based on data from the Gemini exchange</p>
-        <Columns changeViews={props.changeViews} views={props.views}/>
+        <Columns changeViews={this.props.changeViews} views={this.props.views}/>
         <div>
           {
-            Object.keys(props.data).sort( (a,b) => {
-              if(a < b) return 1;
-              if(a > b) return -1;
+            this.props.data
+            &&
+            this.props.data.sort( (a,b) => {
+              if(a.symbol < b.symbol) return -1;
+              if(a.symbol > b.symbol) return 1;
               return 0;
-            }).map( (coinName, index) => {
-              return <Coin key={`${coinName}-${index}`} changeViews={props.changeViews} views={props.views} name={coinName} values={props.data[coinName].values}/>
+            }).map( (coin, index) => {
+              return <Coin key={`${coin.symbol}-${index}`} changeViews={this.props.changeViews} {...coin} />
             })
           }
         </div>

@@ -1,14 +1,15 @@
 import React from 'react';
 import classNames from 'classnames'
+import { Link } from 'react-router-dom'
 
 const Coin = (props) => {
 	return (
-		<div className='row columns'>
-			<span className="name">{`${props.name.toUpperCase().substring(0,3)} - USD`}</span>
+		<Link to={`/${props.symbol}`} className='row columns'>
+			<span className="name">{ props.symbol }</span>
 			<div className="quantities">
-				<span onClick={ props.changeViews } className={`quantity ${props.views.options[0].id}${ props.views.current == props.views.options[0].id ? ' is-active' : '' }`}>{ props.values.events[0].price } </span>
+				<span onClick={ props.changeViews } className={`currentPrice`}>{ props.currentPrice }</span>
 			</div>
-		</div>
+		</Link>
 	)
 }
 
