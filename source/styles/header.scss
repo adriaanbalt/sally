@@ -1,0 +1,30 @@
+header {
+	.container-logo {
+		@include clearFix();
+		position: relative;
+	}
+  .anchor-home {
+    padding: 0 .5em 0 0;
+    display: block;
+    text-align: center;
+  }
+  .c-hamburger {
+  	position: absolute;
+  	top: 0;
+  }
+  h1 {
+  	line-height: 68px;
+  }
+	.logo {
+		position: relative;
+	  width: 60px;
+	}
+	nav {
+		a {
+			padding: .25em .25em;
+			&:first-child{
+				padding: .25em .25em .25em 0;
+			}
+		}
+	}
+}
