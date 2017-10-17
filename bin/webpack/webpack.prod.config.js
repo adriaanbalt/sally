@@ -56,15 +56,16 @@ const config = {
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
       compress: {
-        warnings: false
+        warnings: true
       }
     }),
     new webpack.DefinePlugin({
-      '__PORT__': JSON.stringify(process.env.PORT),
-      '__HEROKU__': JSON.stringify(process.env.HEROKU)
-    }),
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    })
   ],
-  devtool: ''
+  devtool: 'source-map'
 }
 
 module.exports = config
