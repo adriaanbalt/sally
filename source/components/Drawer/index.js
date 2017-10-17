@@ -6,10 +6,10 @@ const Drawer = (props) => (
     <div className='inner'>
     	<h1>Sally.exchange</h1>
       <hr/>
-      <button onClick={() => props.switchExchange('gemini')}>Gemini</button>
-      <button onClick={() => props.switchExchange('bittrex')}>Bittrex</button>
-      <button onClick={() => props.switchExchange('poloniex')}>Poloniex</button>
-      <button onClick={() => props.switchExchange('winkdex')}>Winkdex</button>
+      <button className={props.whichExchange=="gemini" ? ' is-active': '' } onClick={() => props.switchExchange('gemini')}>Gemini</button>
+      <button className={props.whichExchange=="bittrex" ? ' is-active': '' } onClick={() => props.switchExchange('bittrex')}>Bittrex</button>
+      <button className={props.whichExchange=="poloniex" ? ' is-active': '' } onClick={() => props.switchExchange('poloniex')}>Poloniex</button>
+      <button className={props.whichExchange=="winkdex" ? ' is-active': '' } onClick={() => props.switchExchange('winkdex')}>Winkdex</button>
       <hr/>
       <nav>
         <Link to="/">Market</Link>

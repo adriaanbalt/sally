@@ -16,6 +16,7 @@ import Details from 'source/details'
 import NotFound from 'source/NotFound'
 
 import {
+  switchExchange,
   getMarket,
   toggleDrawer
 } from './actions'
@@ -39,7 +40,7 @@ class App extends Component {
     return(
       <ConnectedRouter history={history}>
         <main>
-          <Drawer isOpen={this.props.isDrawerOpen}/>
+          <Drawer isOpen={this.props.isDrawerOpen} switchExchange={this.props.switchExchange} whichExchange={this.props.whichExchange}/>
           <div className={`wrapper${this.props.isDrawerOpen ? ' drawer-open': '' }`}>
             <div className='inner'>
               <Header toggleDrawer={this.props.toggleDrawer} isOpen={this.props.isDrawerOpen}/>
@@ -62,9 +63,11 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   isDrawerOpen: state.appReducer.isDrawerOpen,
+  whichExchange: state.appReducer.whichExchange,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+  switchExchange,
   getMarket,
   toggleDrawer,
 }, dispatch)
