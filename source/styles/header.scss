@@ -2,6 +2,7 @@ header {
 	.container-logo {
 		@include clearFix();
 		position: relative;
+		z-index: 101;
 	}
   .anchor-home {
     padding: 0 .5em 0 0;
@@ -9,7 +10,6 @@ header {
     text-align: center;
   }
   .c-hamburger {
-  	display: none;
   	position: absolute;
   	top: 0;
   }

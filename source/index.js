@@ -5,34 +5,18 @@ import { Switch, Route } from 'react-router'
 import { Link } from 'react-router-dom'
 import { ConnectedRouter } from 'react-router-redux'
 import store, { history } from './Store'
-import Header from 'components/Header'
-import Footer from 'components/Footer'
 import App from './App'
-import Drawer from './Drawer'
-import Market from './market'
-import About from './about'
-import Details from './details'
-import NotFound from './NotFound'
+import Market from 'source/market'
+import About from 'source/about'
+import Details from 'source/details'
+import NotFound from 'source/NotFound'
+import Header from 'components/Header'
 
 import './index.scss'
 
 render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <main>
-        <Drawer />
-        <div className="wrapper">
-          <Header/>
-          <Switch>
-            <Route exact path="/" component={Market} />
-            <Route path="/about" component={About} />
-            <Route path="/:symbol" component={Details} />
-            <Route component={NotFound} />
-          </Switch>
-          <Footer />
-        </div>
-      </main>
-    </ConnectedRouter>
+    <App />
   </Provider>,
   document.querySelector('#root')
 )

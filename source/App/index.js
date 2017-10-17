@@ -1,42 +1,72 @@
 import React, { Component } from 'react'
-import { Switch, Route } from 'react-router'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
 
+import { Switch, Route } from 'react-router'
+import { ConnectedRouter } from 'react-router-redux'
+import { history } from '../Store'
+
 import Header from 'components/Header'
 import Footer from 'components/Footer'
+import Drawer from 'components/Drawer'
 import Market from 'source/market'
 import About from 'source/about'
 import Details from 'source/details'
 import NotFound from 'source/NotFound'
 
+import {
+  getMarket,
+  toggleDrawer
+} from './actions'
+
+
 class App extends Component {
+  componentDidMount() {
+    this.poll()
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.interval)
+  }
+
+  poll() {
+    this.interval =setInterval( this.props.getMarket, 10000 )
+    this.props.getMarket()
+  }
 
   render(){
     return(
-      <main>
-        <div className="wrapper">
-          <Header />
-          <main>
-            <Switch>
-              <Route exact path="/" component={Market} />
-              <Route path="/about" component={About} />
-              <Route path="/:symbol" component={Details} />
-              <Route component={NotFound} />
-            </Switch>
-          </main>
-          <Footer />
-        </div>
-      </main>
+      <ConnectedRouter history={history}>
+        <main>
+          <Drawer isOpen={this.props.isDrawerOpen}/>
+          <div className={`wrapper${this.props.isDrawerOpen ? ' drawer-open': '' }`}>
+            <div className='inner'>
+              <Header toggleDrawer={this.props.toggleDrawer} isOpen={this.props.isDrawerOpen}/>
+              <div className='content'>
+                <Switch>
+                  <Route exact path='/' component={Market} />
+                  <Route path='/about' component={About} />
+                  <Route path='/:symbol' component={Details} />
+                  <Route component={NotFound} />
+                </Switch>
+                <Footer />
+              </div>
+            </div>
+          </div>
+        </main>
+      </ConnectedRouter>
     )
   }
 }
 
 const mapStateToProps = state => ({
+  isDrawerOpen: state.appReducer.isDrawerOpen,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+  getMarket,
+  toggleDrawer,
 }, dispatch)
 
 export default connect(

@@ -1,13 +1,18 @@
 #drawer {
-	display: none;
+	&.is-active{
+		left: 0;
+		border-right: 1px solid $color-purple;
+	}
+	border-right: 1px solid $color-black;
+	transition: all 500ms;
 	position: absolute;
-	left: 0;
+	left: -80%;
 	width: 80%;
 	border-right: $color-white;
 	background-color: $color-black;
 	height: 100vh;
 	z-index: 100;
-	padding: $padding;
+	// padding: $padding;
 	button {
 		display: block;
 	}

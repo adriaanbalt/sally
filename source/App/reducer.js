@@ -1,19 +1,26 @@
-import { GET_MARKET, SWITCH_EXCHANGE } from './actions'
+import { SET_MARKET, TOGGLE_DRAWER, SWITCH_EXCHANGE } from './actions'
 
 const initialState = {
+  isDrawerOpen: false,
   whichExchange: 'gemini'
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
 
-    case GET_MARKET:
+    case SET_MARKET:
       return {
         ...state,
         gemini: action.gemini,
         bittrex: action.bittrex,
         poloniex: action.poloniex,
         winkdex: action.winkdex,
+      }
+
+    case TOGGLE_DRAWER:
+      return {
+        ...state,
+        isDrawerOpen: !state.isDrawerOpen
       }
 
     case SWITCH_EXCHANGE:

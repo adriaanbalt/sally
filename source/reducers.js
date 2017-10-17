@@ -5,14 +5,14 @@ import geminiReducer from './exchanges/gemini/reducer'
 import bittrexReducer from './exchanges/bittrex/reducer'
 import poloniexReducer from './exchanges/poloniex/reducer'
 import detailsReducer from './details/reducer'
-import headerReducer from './components/Header/reducer'
+import appReducer from './App/reducer'
 
 export default combineReducers({
   routing: routerReducer,
+  appReducer,
   marketReducer,
   geminiReducer,
   bittrexReducer,
   poloniexReducer,
   detailsReducer,
-  headerReducer,
 })
