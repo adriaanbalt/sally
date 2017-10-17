@@ -29,7 +29,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server -d --inline --hot --config $npm_package_config_build_scripts_dir/webpack/webpack.dev.config.js --watch --progress",
-    "prod": "webpack -d --config $npm_package_config_build_scripts_dir/webpack/webpack.prod.config.js"
+    "prod": "node server"
   },
   "dependencies": {
     "babel-cli": "^6.24.1",
@@ -41,6 +41,7 @@
     "babel-register": "^6.24.1",
     "bluebird": "^3.5.0",
     "classnames": "^2.2.5",
+    "cookie-parser": "^1.4.3",
     "css-loader": "^0.28.4",
     "node-sass": "^4.5.3",
     "react": "^15.6.1",
