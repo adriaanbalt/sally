@@ -16,7 +16,7 @@ class Details extends Component {
   render() {
     console.log('Details render', this.props )
     return(
-      <section id="about">
+      <section id="details">
         {
           this.props.coin
           &&
