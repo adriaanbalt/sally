@@ -1,4 +1,3 @@
-// webpack-dev-server -d --hot --config $npm_package_config_build_scripts_dir/webpack/webpack.config.js --watch --progress", 
 const webpack = require('webpack')
 const path = require('path')
 
@@ -8,7 +7,7 @@ const DIST_PATH = path.join(__dirname, '../../public' )
 const SOURCE_PATH = path.join(__dirname, '../../source' )
 
 const config = {
-  entry: `${SOURCE_PATH}/index.js`,
+  entry: ['babel-polyfill',`${SOURCE_PATH}/index.js`],
   output: {
     path: DIST_PATH,
     filename: 'js/main.js'
@@ -21,7 +20,9 @@ const config = {
     ],
     alias: {
       'node_modules': `${NODE_MODULES_PATH}`,
+      'source': `${SOURCE_PATH}`,
       'components': `${SOURCE_PATH}/components`,
+      'styles': `${SOURCE_PATH}`,
     }
   },
   module: {
@@ -53,9 +54,7 @@ const config = {
   plugins: [
     new webpack.DefinePlugin({
       '__PORT__': JSON.stringify(process.env.PORT),
-      '__HEROKU__': JSON.stringify(process.env.HEROKU),
-      '__BITTREX_KEY__': JSON.stringify(process.env.BITTREX_KEY),
-      '__BITTREX_SECRET__': JSON.stringify(process.env.BITTREX_SECRET)
+      '__HEROKU__': JSON.stringify(process.env.HEROKU)
     }),
   ],
   devtool: ''

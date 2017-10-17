@@ -7,8 +7,6 @@ const NODE_MODULES_PATH = path.join(__dirname, '../../node_modules' )
 const DIST_PATH = path.join(__dirname, '../../public' )
 const SOURCE_PATH = path.join(__dirname, '../../source' )
 
-console.log ( 'ROOT_PATH', ROOT_PATH )
-
 const config = {
   entry: ['babel-polyfill',`${SOURCE_PATH}/index.js`],
   output: {

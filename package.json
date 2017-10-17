@@ -28,7 +28,8 @@
     "build_scripts_dir": "bin"
   },
   "scripts": {
-    "start": "webpack-dev-server -d --inline --hot --config $npm_package_config_build_scripts_dir/webpack/webpack.dev.config.js --watch --progress"
+    "start": "webpack-dev-server -d --inline --hot --config $npm_package_config_build_scripts_dir/webpack/webpack.dev.config.js --watch --progress",
+    "prod":  "webpack -d --config $npm_package_config_build_scripts_dir/webpack/webpack.prod.config.js"
   },
   "dependencies": {
     "ajv": "^5.2.2",
