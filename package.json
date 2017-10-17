@@ -29,11 +29,9 @@
   },
   "scripts": {
     "start": "webpack-dev-server -d --inline --hot --config $npm_package_config_build_scripts_dir/webpack/webpack.dev.config.js --watch --progress",
-    "prod":  "webpack -d --config $npm_package_config_build_scripts_dir/webpack/webpack.prod.config.js"
+    "prod": "webpack -d --config $npm_package_config_build_scripts_dir/webpack/webpack.prod.config.js"
   },
   "dependencies": {
-    "ajv": "^5.2.2",
-    "autobahn": "^17.5.2",
     "babel-cli": "^6.24.1",
     "babel-loader": "^7.1.1",
     "babel-polyfill": "^6.26.0",
@@ -42,28 +40,21 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.24.1",
     "bluebird": "^3.5.0",
-    "body-parser": "^1.17.2",
     "classnames": "^2.2.5",
-    "cookie-parser": "^1.4.3",
     "css-loader": "^0.28.4",
-    "dotenv": "^4.0.0",
-    "express": "^4.15.3",
-    "moment": "^2.18.1",
     "node-sass": "^4.5.3",
-    "nonce": "~1.0.3",
-    "npm": "^5.3.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.7.1",
-    "redux-socket.io": "^1.4.0",
     "redux-thunk": "^2.2.0",
     "request": "~2.33.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "superagent": "^3.5.2",
+    "uglifyjs-webpack-plugin": "^1.0.0-beta.3",
     "webpack": "^3.1.0"
   },
   "devDependencies": {

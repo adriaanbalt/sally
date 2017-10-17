@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const ROOT_PATH = path.join(__dirname, '../../' )
 const NODE_MODULES_PATH = path.join(__dirname, '../../node_modules' )
@@ -52,6 +53,12 @@ const config = {
     ]
   },
   plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      compress: {
+        warnings: false
+      }
+    }),
     new webpack.DefinePlugin({
       '__PORT__': JSON.stringify(process.env.PORT),
       '__HEROKU__': JSON.stringify(process.env.HEROKU)
