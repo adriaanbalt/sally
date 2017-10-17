@@ -1,6 +1,5 @@
 const webpack = require('webpack')
 const path = require('path')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const ROOT_PATH = path.join(__dirname, '../../' )
 const NODE_MODULES_PATH = path.join(__dirname, '../../node_modules' )
