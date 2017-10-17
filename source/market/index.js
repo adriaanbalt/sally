@@ -15,7 +15,7 @@ import Poloniex from '../exchanges/poloniex'
 import Winkdex from '../exchanges/winkdex'
 
 class Market extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.poll()
   }
 
