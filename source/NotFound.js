@@ -1,4 +1,3 @@
-import './index.scss'
 import React from 'react'
 import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
