@@ -8,6 +8,7 @@ import store, { history } from './Store'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
 import App from './App'
+import Drawer from './Drawer'
 import Market from './market'
 import About from './about'
 import Details from './details'
@@ -20,6 +21,7 @@ render(
     <ConnectedRouter history={history}>
       <main>
         <div className="wrapper">
+          <Drawer />
           <Header/>
           <Switch>
             <Route exact path="/" component={Market} />
