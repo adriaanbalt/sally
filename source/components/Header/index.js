@@ -13,7 +13,7 @@ class Header extends Component {
     return(
       <header>
         <div className="container-logo">
-          <Link to="/" className="anchor-home"><img className="logo" src="/logo.png" /></Link>
+          <Link to="/" className="anchor-home"><img className="logo" src="logo.png" /></Link>
           <button onClick={ this.props.toggleDrawer } className={`c-hamburger c-hamburger--htx${this.props.isOpen ? ' is-active': '' }`}>
             <span>toggle menu</span>
           </button>

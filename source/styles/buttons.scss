@@ -1,0 +1,14 @@
+button {
+	background-color: $color-purple;
+	border: 0;
+	outline: 0;
+	margin: 1em 0;
+	color: $color-white;
+	padding: .5em 1em;
+	line-height: 15px;
+	vertical-align: top;
+	&:hover {
+		background-color: $color-white;
+		color: $color-purple;
+	}
+}

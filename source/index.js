@@ -20,8 +20,8 @@ render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <main>
+        <Drawer />
         <div className="wrapper">
-          <Drawer />
           <Header/>
           <Switch>
             <Route exact path="/" component={Market} />
