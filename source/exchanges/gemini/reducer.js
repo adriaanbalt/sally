@@ -7,7 +7,7 @@ const initialState = {
     options: [
       {
         id: 'currentPrice',
-        label: 'Current Price'
+        label: 'Price'
       }
     ]
   },
