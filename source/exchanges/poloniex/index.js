@@ -27,7 +27,7 @@ const Poloniex = props => {
             if(a.symbol > b.symbol) return -1;
             return 0;
           }).map( (coin, index) => {
-            return <Coin key={`${coin.symbol}-${index}`} {...coin}/>
+            return <Coin key={`${coin.symbol}-${index}`} exchange={'POLONIEX-'} {...coin}/>
           })
         }
       </div>
