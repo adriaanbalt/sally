@@ -1,4 +1,6 @@
 header {
+	padding-bottom: 10px;
+	border-bottom: 1px solid $color-gray-light;
 	.container-logo {
 		@include clearFix();
 		position: relative;
