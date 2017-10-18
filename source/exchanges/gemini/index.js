@@ -15,7 +15,7 @@ import Coin from './components/Coin'
 const Gemini = props => {
   return(
     <div>
-      <p>Based on data from the Gemini exchange</p>
+      <p>Based on data from the <span className='exchange-name'>Gemini</span> exchange</p>
       <Columns changeViews={props.changeViews} views={props.views}/>
       <div>
         {

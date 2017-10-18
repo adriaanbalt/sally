@@ -13,10 +13,9 @@ import Columns from './components/Columns'
 import Coin from './components/Coin'
 
 const Bittrex = props => {
-  console.log( 'bittrex', props )
   return(
     <div>
-      <p>Based on data from the Bittrex exchange</p>
+      <p>Based on data from the <span className='exchange-name'>Bittrex</span> exchange</p>
       <Columns changeViews={props.changeViews} views={props.views}/>
       <div>
         {
