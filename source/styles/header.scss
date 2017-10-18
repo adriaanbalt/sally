@@ -1,19 +1,38 @@
 header {
 	padding-bottom: 10px;
-	border-bottom: 1px solid $color-gray-light;
+	position: fixed;
+  background: $color-bg;
+  z-index: 1000;
+	width: 100%;
+	.inner {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: $nav-height;
+	}
+  .line {
+  	background-color: $color-gray-light;
+  	height: 1px;
+  	position: relative;
+  	bottom: 0;
+  	width: 92%;
+  	margin-left: $padding;
+  }
 	.container-logo {
 		@include clearFix();
 		position: relative;
 		z-index: 101;
 	}
   .anchor-home {
-    padding: 0 .5em 0 0;
+    margin-top: 10px;
     display: block;
     text-align: center;
   }
   .c-hamburger {
   	position: absolute;
   	top: 0;
+    margin: 10px;
+    cursor: pointer;
   }
   h1 {
   	line-height: 68px;

@@ -2,18 +2,18 @@
 	&.is-active{
 		left: 0;
 	}
-	.app-name {
-		float: right;
-		line-height: 40px;
-	}
 	border-right: 1px solid $color-purple;
 	transition: all 500ms;
-	position: absolute;
+	position: fixed;
 	left: -80%;
 	width: 80%;
 	background-color: $color-bg;
 	height: 100vh;
-	z-index: 100;
+	z-index: 10000;
+	.app-name {
+		float: right;
+		line-height: 40px;
+	}
 	.footer {
 		position: absolute;
 	    bottom: 0;

@@ -42,8 +42,8 @@ class App extends Component {
         <main className={`${this.props.isDrawerOpen ? 'drawer-open': '' }`}>
           <Drawer closeDrawer={()=>this.props.toggleDrawer(false)} isOpen={this.props.isDrawerOpen} switchExchange={this.props.switchExchange} whichExchange={this.props.whichExchange}/>
           <div className={`wrapper`}>
+            <Header toggleDrawer={this.props.toggleDrawer} isOpen={this.props.isDrawerOpen}/>
             <div className='inner'>
-              <Header toggleDrawer={this.props.toggleDrawer} isOpen={this.props.isDrawerOpen}/>
               <div className='content'>
                 <Switch>
                   <Route exact path='/' component={Market} />

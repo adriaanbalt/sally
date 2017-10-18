@@ -16,15 +16,8 @@ body {
   padding: $padding;
 }
 main {
-  min-height: 100vh;
-  border-top: 1px solid $color-purple;
-  border-right: 1px solid $color-purple;
-  border-bottom: 1px solid $color-purple;
 }
 .drawer-open {
-  border-top: 1px solid $color-bg;
-  border-right: 1px solid $color-bg;
-  border-bottom: 1px solid $color-bg;
   .wrapper{
     .content {
       filter: blur(2px);
@@ -37,9 +30,10 @@ main {
   }
 }
 .wrapper {
+  width: 100vh;
+  min-height: 100vh;
   // padding: $padding;
   transition: all 500ms;
-  width: 100%;
   margin-left: 0;
   &:before{
     content: '';
@@ -56,6 +50,9 @@ main {
     transition: all 1500ms;
     filter: blur(0px);
   }
+}
+.content {
+  margin-top: $nav-height;
 }
 footer {
   position: absolute;

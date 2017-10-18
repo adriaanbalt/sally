@@ -20,8 +20,8 @@ class Details extends Component {
     console.log('Details render', this.props )
     return(
       <section id='details'>
-        <Link to='/'>back</Link>
         <h1 className='exchange-name'>{ this.props.match.params.symbol }</h1>
+        <Link to='/' className='btn-back'>back</Link>
         {
           this.props.coin
           &&
@@ -29,8 +29,7 @@ class Details extends Component {
             <p>Current Price</p>
             <h2>{ this.props.coin.currentPrice }</h2>
             <p>24 Hour Percentage</p>
-            <h2>{this.props.coin.percentage}</h2>
-            <h2>{`${this.props.coin.percentage} ${round(this.props.coin.percentage, 2)}%`}</h2>
+            <h2>{`${round(this.props.coin.percentage, 2)}%`}</h2>
           </div>
         }
       </section>

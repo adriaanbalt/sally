@@ -12,6 +12,7 @@ const Header = (props) => (
         <span>toggle menu</span>
       </div>
     </div>
+     <div className="line"></div>
   </header>
 )
 
