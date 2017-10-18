@@ -39,9 +39,9 @@ class App extends Component {
   render(){
     return(
       <ConnectedRouter history={history}>
-        <main>
+        <main className={`${this.props.isDrawerOpen ? 'drawer-open': '' }`}>
           <Drawer closeDrawer={()=>this.props.toggleDrawer(false)} isOpen={this.props.isDrawerOpen} switchExchange={this.props.switchExchange} whichExchange={this.props.whichExchange}/>
-          <div className={`wrapper${this.props.isDrawerOpen ? ' drawer-open': '' }`}>
+          <div className={`wrapper`}>
             <div className='inner'>
               <Header toggleDrawer={this.props.toggleDrawer} isOpen={this.props.isDrawerOpen}/>
               <div className='content'>
