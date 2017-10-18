@@ -3,6 +3,7 @@ import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
+import { Link } from 'react-router-dom'
 
 import {
   setSummaryBySymbol
@@ -17,6 +18,7 @@ class Details extends Component {
     console.log('Details render', this.props )
     return(
       <section id="details">
+        <Link to="/">back</Link>
         {
           this.props.coin
           &&
