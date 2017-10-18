@@ -1,10 +1,11 @@
 #details {
     padding-top: 1em;
+    position: relative;
     .btn-back {
-    	float: right;
     }
     h1 {
-    	display: inline-block;
+    	margin-top: 1em;
+    	display: block;
     }
     .stats {
     	margin-top: 1em;

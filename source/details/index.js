@@ -20,8 +20,8 @@ class Details extends Component {
     console.log('Details render', this.props )
     return(
       <section id='details'>
-        <h1 className='exchange-name'>{ this.props.match.params.symbol }</h1>
         <Link to='/' className='btn-back'>back</Link>
+        <h1 className='exchange-name'>{ this.props.match.params.symbol }</h1>
         {
           this.props.coin
           &&
