@@ -51,3 +51,9 @@ footer {
   bottom: 15px;
   width: 100vh;
 }
+main {
+  min-height: 100vh;
+  border-top: 1px solid $color-purple;
+  border-right: 1px solid $color-purple;
+  border-bottom: 1px solid $color-purple;
+}
