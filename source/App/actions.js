@@ -8,7 +8,8 @@ export const switchExchange = ( newExchange ) => {
   return dispatch => {
     dispatch({
       type: SWITCH_EXCHANGE,
-      whichExchange: newExchange
+      whichExchange: newExchange,
+      isDrawerOpen: false
     })
   }
 }

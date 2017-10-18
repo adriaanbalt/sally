@@ -25,12 +25,12 @@ class Details extends Component {
         {
           this.props.coin
           &&
-          <p>Current Price: { this.props.coin.currentPrice }</p>
+          <h2>Current Price: { this.props.coin.currentPrice }</h2>
         }
         {
           this.props.coin
           &&
-          <p>24 Hour Percentage: { this.props.coin.percentage }</p>
+          <h2>24 Hour Percentage: { this.props.coin.percentage }</h2>
         }
       </section>
     )
