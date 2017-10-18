@@ -1,5 +1,4 @@
 header {
-	padding-bottom: 10px;
 	position: fixed;
   background: $color-bg;
   z-index: 1000;
@@ -17,6 +16,14 @@ header {
   	bottom: 0;
   	width: 92%;
   	margin-left: $padding;
+    display: none;
+  }
+  .arrow {
+    width: 0; 
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid black;
   }
 	.container-logo {
 		@include clearFix();
@@ -31,7 +38,7 @@ header {
   .c-hamburger {
   	position: absolute;
   	top: 0;
-    margin: 10px;
+    margin: 20px 10px;
     cursor: pointer;
   }
   h1 {
@@ -39,7 +46,7 @@ header {
   }
 	.logo {
 		position: relative;
-	  width: 40px;
+	  width: 60px;
 	}
 	nav {
 		a {
