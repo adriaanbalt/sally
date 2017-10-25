@@ -1,4 +1,4 @@
-import { get } from '../API'
+import { getProd } from '../API'
 
 export const TOGGLE_DRAWER = 'TOGGLE_DRAWER'
 export const SET_MARKET = 'SET_MARKET'
@@ -15,7 +15,7 @@ export const switchExchange = ( newExchange ) => {
 }
 
 export const getMarket = () => async ( dispatch, getState ) => {
-  let res = await get('/summary/crypto')
+  let res = await getProd(`/summary/crypto`)
   dispatch({
     type: SET_MARKET,
     gemini: res.body.filter( item => item.symbol.indexOf('GEMINI') > -1 ),

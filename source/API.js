@@ -4,7 +4,7 @@ import Constants from './constants'
 
 // console.log ( "Constants", API, API_VERSION )
 const apiRequest = o => {
-  let endpoint = `${Constants.API}/${Constants.API_VERSION}${o.route}`
+  let endpoint = o.route
   // console.log( 'apiRequest', o)
   o.params = o.params || [];
   //if(o.body && ['get','del'].indexOf(o.method)!==-1) throw new Error("get and delete requests can't have a body with superagent library");
@@ -22,4 +22,6 @@ const apiRequest = o => {
   });
 }
 
+export const getProd = (route, options) => apiRequest(Object.assign({}, options, { verb: 'GET', route: `${Constants.API}/${Constants.API_VERSION}${route}` }))
+export const getWWW = (route, options) => apiRequest(Object.assign({}, options, { verb: 'GET', route: `${Constants.API_WWW}/${Constants.API_WWW_VERSION}${route}` }))
 export const get = (route, options) => apiRequest(Object.assign({}, options, { verb: 'GET', route }))
