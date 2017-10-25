@@ -1,4 +1,4 @@
-import { SET_DETAILS } from './actions'
+import { SET_DETAILS, SET_GRAPH_DATA } from './actions'
 
 const initialState = {
 }
@@ -8,8 +8,20 @@ export default (state = initialState, action) => {
     case SET_DETAILS:
       return {
         ...state,
-        currentCoin: action.data
+        currentCoin: {
+        	...state.currentCoin,
+        	...action.data
+        }
       }
+
+    case SET_GRAPH_DATA:
+    	return {
+    		...state,
+    		currentCoin: {
+    			...state.currentCoin,
+    			graph: action.data
+    		}
+    	}
 
     default:
       return state

@@ -5,23 +5,56 @@ import { connect } from 'react-redux'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 import { round } from 'lodash'
+import { VictoryChart, VictoryLine, VictoryAxis, VictoryCandlestick, VictoryTheme } from 'victory'
 
+import Constants from '../constants'
 
 import {
-  setSummaryBySymbol
+  setSummaryBySymbol,
+  loadGraphDataBySymbol
 } from './actions'
 
 class Details extends Component {
   componentWillMount() {
      this.props.setSummaryBySymbol( this.props.match.params.symbol )
+     this.props.loadGraphDataBySymbol( this.props.match.params.symbol )
   }
 
   render() {
-    console.log('Details render', this.props )
     return(
       <section id='details'>
         <Link to='/' className='btn-back'>back</Link>
         <h1 className='exchange-name'>{ this.props.match.params.symbol }</h1>
+        {
+          this.props.coin
+          &&
+          this.props.coin.graph
+          &&
+          <div className='container-graph'>
+            <VictoryChart>
+              <VictoryAxis 
+                tickFormat={(t) => `${new Date(t).getMonth()}/${new Date(t).getDate()}`} 
+                style={{
+                  axis: {stroke: Constants.COLOR_GRAPH},
+                  tickLabels: {fill: Constants.COLOR_GRAPH, fontSize: 10, padding: 5}
+                }}
+              />
+              <VictoryAxis 
+                dependentAxis 
+                style={{
+                  fill: Constants.COLOR_GRAPH,
+                  axis: {stroke: Constants.COLOR_GRAPH},
+                  tickLabels: {fill: Constants.COLOR_GRAPH, fontSize: 10, padding: 5}
+                }}
+              />
+              <VictoryLine
+                style={{
+                  data: { stroke: Constants.COLOR_GRAPH, strokeWidth: 1 }
+                }}
+                data={this.props.coin.graph} />
+            </VictoryChart>
+          </div>
+        }
         {
           this.props.coin
           &&
@@ -42,7 +75,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  setSummaryBySymbol
+  setSummaryBySymbol,
+  loadGraphDataBySymbol,
 }, dispatch)
 
 export default connect(

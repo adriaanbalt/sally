@@ -55,7 +55,8 @@ main {
   margin-top: $nav-height;
 }
 footer {
-  position: absolute;
+  position: relative;
+  padding-top: 2em;
   bottom: 15px;
   font-size: 12px;
 }
