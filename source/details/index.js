@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 import { round } from 'lodash'
+import moment from 'moment'
 import { VictoryChart, VictoryLine, VictoryAxis, VictoryCandlestick, VictoryTheme } from 'victory'
 
 import Constants from '../constants'
@@ -22,11 +23,19 @@ class Details extends Component {
   }
 
   render() {
-    console.log('render',this.props.isGraphLoaded, this.props.isDataLoaded )
+    console.log('render',this.props)
     return(
       <section id='details'>
         <Link to='/' className='btn-back'>back</Link>
         <h1 className='exchange-name'>{ this.props.match.params.symbol }</h1>
+        {
+          this.props.coin
+          &&
+          <div className="lastUpdate">
+            <p>Last Update</p>
+            <h3>{ moment( this.props.coin.now ).format( "H:mm:ss MM/D/YY" ) }</h3>
+          </div>
+        }
         {
           ( !this.props.isGraphLoaded && !this.props.isDataLoaded )
           &&
