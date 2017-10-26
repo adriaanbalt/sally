@@ -11,10 +11,25 @@ import Winkdex from '../exchanges/winkdex'
 
 import Loader from '../components/Loader'
 
+import {
+  getMarket
+} from './actions'
+
 class Market extends Component {
+  componentDidMount() {
+    this.poll()
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.interval)
+  }
+
+  poll() {
+    this.interval =setInterval( this.props.getMarket, 10000 )
+    this.props.getMarket()
+  }
 
   render(){
-    console.log('isLoading', this.props.isLoading )
     return(
       <section id="market">
         {
@@ -48,15 +63,16 @@ class Market extends Component {
 }
 
 const mapStateToProps = state => ({
-  isLoading: state.appReducer.isLoading,
-  gemini: state.appReducer.gemini,
-  bittrex: state.appReducer.bittrex,
-  poloniex: state.appReducer.poloniex,
-  winkdex: state.appReducer.winkdex,
+  isLoading: state.marketReducer.isLoading,
+  gemini: state.marketReducer.gemini,
+  bittrex: state.marketReducer.bittrex,
+  poloniex: state.marketReducer.poloniex,
+  winkdex: state.marketReducer.winkdex,
   whichExchange: state.appReducer.whichExchange
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+  getMarket
 }, dispatch)
 
 export default connect(

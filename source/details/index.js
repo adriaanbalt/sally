@@ -36,7 +36,6 @@ class Details extends Component {
   }
 
   render() {
-    console.log('render',this.props)
     return(
       <section id='details'>
         <Link to='/' className='btn-back'>back</Link>

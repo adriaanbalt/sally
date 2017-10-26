@@ -4,6 +4,7 @@ export const SET_GRAPH_DATA = 'SET_GRAPH_DATA'
 
 export const setSummaryBySymbol = ( symbol ) => async ( dispatch, getState ) => {
   let res = await getProd(`/summary/crypto/${symbol}`)
+  console.log( 'setSummaryBySymbol')
   dispatch({
     type: SET_DETAILS,
     data: res.body
@@ -12,7 +13,7 @@ export const setSummaryBySymbol = ( symbol ) => async ( dispatch, getState ) => 
 
 export const loadGraphDataBySymbol = ( symbol ) => async ( dispatch, getState ) => {
   let res = await getWWW(`/records/${ symbol}?period=1m&length=100&startDate=1508677680000`)
-  console.log(' loadGraphDataBySymbol', res.body )
+  console.log( 'loadGraphDataBySymbol')
   let results = res.body.map(( entry ) => {
   	return {
 	   	x: parseISOString(entry.date),

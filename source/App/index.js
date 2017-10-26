@@ -17,25 +17,11 @@ import NotFound from 'source/NotFound'
 
 import {
   switchExchange,
-  getMarket,
   toggleDrawer
 } from './actions'
 
 
 class App extends Component {
-  componentDidMount() {
-    this.poll()
-  }
-
-  componentWillUnmount(){
-    clearInterval(this.interval)
-  }
-
-  poll() {
-    this.interval =setInterval( this.props.getMarket, 10000 )
-    this.props.getMarket()
-  }
-
   render(){
     return(
       <ConnectedRouter history={history}>
@@ -68,7 +54,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   switchExchange,
-  getMarket,
   toggleDrawer,
 }, dispatch)
 
