@@ -22,12 +22,13 @@ class Details extends Component {
   }
 
   render() {
+    console.log('render',this.props.isGraphLoaded, this.props.isDataLoaded )
     return(
       <section id='details'>
         <Link to='/' className='btn-back'>back</Link>
         <h1 className='exchange-name'>{ this.props.match.params.symbol }</h1>
         {
-          this.props.isLoading
+          ( !this.props.isGraphLoaded && !this.props.isDataLoaded )
           &&
           <Loader />
         }
@@ -77,7 +78,9 @@ class Details extends Component {
 }
 
 const mapStateToProps = state => ({
-  coin: state.detailsReducer.currentCoin
+  coin: state.detailsReducer.currentCoin,
+  isDataLoaded: state.detailsReducer.isDataLoaded,
+  isGraphLoaded: state.detailsReducer.isGraphLoaded
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
