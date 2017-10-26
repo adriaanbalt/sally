@@ -12,7 +12,7 @@ export const setSummaryBySymbol = ( symbol ) => async ( dispatch, getState ) => 
 }
 
 export const loadGraphDataBySymbol = ( symbol ) => async ( dispatch, getState ) => {
-  let res = await getWWW(`/records/${ symbol}?period=1m&length=100&startDate=1508677680000`)
+  let res = await getWWW(`/records/${ symbol}?period=1m&length=200`)
   console.log( 'loadGraphDataBySymbol')
   let results = res.body.map(( entry ) => {
   	return {
