@@ -18,8 +18,21 @@ import {
 
 class Details extends Component {
   componentWillMount() {
-     this.props.setSummaryBySymbol( this.props.match.params.symbol )
-     this.props.loadGraphDataBySymbol( this.props.match.params.symbol )
+    this.poll()
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.interval)
+  }
+
+  getData() {
+    this.props.setSummaryBySymbol( this.props.match.params.symbol )
+    this.props.loadGraphDataBySymbol( this.props.match.params.symbol )
+  }
+
+  poll() {
+    this.interval = setInterval( () => this.getData(), 10000 )
+    this.getData()
   }
 
   render() {
