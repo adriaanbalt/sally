@@ -2,6 +2,7 @@ import { SET_MARKET, TOGGLE_DRAWER, SWITCH_EXCHANGE } from './actions'
 
 const initialState = {
   isDrawerOpen: false,
+  isLoading: true,
   whichExchange: 'gemini'
 }
 
@@ -11,6 +12,7 @@ export default (state = initialState, action) => {
     case SET_MARKET:
       return {
         ...state,
+        isLoading: false,
         gemini: action.gemini,
         bittrex: action.bittrex,
         poloniex: action.poloniex,

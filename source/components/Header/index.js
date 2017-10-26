@@ -1,6 +1,4 @@
-import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+import React from 'react'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 

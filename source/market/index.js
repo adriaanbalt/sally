@@ -9,9 +9,12 @@ import Bittrex from '../exchanges/bittrex'
 import Poloniex from '../exchanges/poloniex'
 import Winkdex from '../exchanges/winkdex'
 
+import Loader from '../components/Loader'
+
 class Market extends Component {
 
   render(){
+    console.log('isLoading', this.props.isLoading )
     return(
       <section id="market">
         {
@@ -34,12 +37,18 @@ class Market extends Component {
           &&
           <Winkdex data={this.props.winkdex}/>
         }
+        {
+          this.props.isLoading
+          &&
+          <Loader />
+        }
       </section>
     )
   }
 }
 
 const mapStateToProps = state => ({
+  isLoading: state.appReducer.isLoading,
   gemini: state.appReducer.gemini,
   bittrex: state.appReducer.bittrex,
   poloniex: state.appReducer.poloniex,

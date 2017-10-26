@@ -8,6 +8,7 @@ import { round } from 'lodash'
 import { VictoryChart, VictoryLine, VictoryAxis, VictoryCandlestick, VictoryTheme } from 'victory'
 
 import Constants from '../constants'
+import Loader from '../components/Loader'
 
 import {
   setSummaryBySymbol,
@@ -25,6 +26,11 @@ class Details extends Component {
       <section id='details'>
         <Link to='/' className='btn-back'>back</Link>
         <h1 className='exchange-name'>{ this.props.match.params.symbol }</h1>
+        {
+          this.props.isLoading
+          &&
+          <Loader />
+        }
         {
           this.props.coin
           &&

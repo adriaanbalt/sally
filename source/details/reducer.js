@@ -1,6 +1,8 @@
 import { SET_DETAILS, SET_GRAPH_DATA } from './actions'
 
 const initialState = {
+  isDataLoaded: false,
+  isGraphLoaded: false
 }
 
 export default (state = initialState, action) => {
@@ -8,6 +10,7 @@ export default (state = initialState, action) => {
     case SET_DETAILS:
       return {
         ...state,
+        isDataLoaded: true,
         currentCoin: {
         	...state.currentCoin,
         	...action.data
@@ -17,6 +20,7 @@ export default (state = initialState, action) => {
     case SET_GRAPH_DATA:
     	return {
     		...state,
+        isGraphLoaded: true,
     		currentCoin: {
     			...state.currentCoin,
     			graph: action.data
