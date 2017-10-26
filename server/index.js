@@ -15,6 +15,10 @@ app.use(express.static(path.join(__dirname, '../public')))
 // allows cookie parsing (cookies are simple key value stores in the browser)
 app.use(cookieParser()) 
 
+app.get('/*', function(req, res){
+  res.sendFile( path.join(__dirname, '../public/index.html') );
+});
+
 app.set('port', httpPort )
 
 // Spin up the server
