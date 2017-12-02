@@ -6,12 +6,16 @@ body {
   color: $color-font;
 }
 
-* {
-  -webkit-user-select: none;  /* Chrome all / Safari all */
-  -moz-user-select: none;     /* Firefox all */
-  -ms-user-select: none;      /* IE 10+ */
-  user-select: none;          /* Likely future */  
+button {
+  font-family: 'Open Sans Condensed', sans-serif;
 }
+
+// * {
+//   -webkit-user-select: none;  /* Chrome all / Safari all */
+//   -moz-user-select: none;     /* Firefox all */
+//   -ms-user-select: none;      /* IE 10+ */
+//   user-select: none;          /* Likely future */  
+// }
 .inner {
   padding: $padding;
 }
@@ -52,7 +56,12 @@ main {
   }
 }
 .content {
-  margin-top: $nav-height;
+  .page {
+    margin-top: $nav-height;
+  }
+  footer {
+    padding: $padding;
+  }
 }
 footer {
   position: relative;

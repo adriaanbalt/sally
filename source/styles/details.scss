@@ -1,21 +1,48 @@
 #details {
-    padding-top: 1em;
     position: relative;
     .btn-back {
     }
     h1 {
-    	margin-top: 1em;
     	display: block;
     }
     .stats {
-    	margin-top: 1em;
     	display: block;
     	h2 {
-    		margin-bottom: 1em;
+            text-align: center;
     	}
     }
     .container-graph {
         width: 100%;
         max-width: 900px;
+    }
+    .buttons {
+        margin: 0 0 $padding  0;
+        padding: $padding;
+        background-color: rgba($color-purple-light,.25);
+        button {
+            width: 50%;
+            border: 1px solid $color-bg;
+        }
+    }
+    .exchange-name {
+        text-align: center;
+    }
+    .percent-change {
+        font-size: 14px;
+    }
+    .automation {
+        padding: $padding;
+        h2 {
+            margin: 0 0 $padding 0;
+        }
+        .slider {
+            width: 100%;
+        }
+        .low {
+
+        }
+        .high {
+            float: right;
+        }
     }
 }

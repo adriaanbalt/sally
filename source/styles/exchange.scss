@@ -15,6 +15,10 @@
 			font-weight: 700;
 		}
 	}
+	.columns {
+		.inner {
+		}
+	}
 	.columns-header {
 		width: 100%;
 		height: $row-height;
@@ -47,10 +51,7 @@
 	}
 	.quantities {
 		display: inline-block;
-		position: absolute;
-		top: 50%;
-	    transform: translateY(-50%);
-		right: 0;
+		float: right;
 		width: 25%;
 		height: $row-height;
 	    text-align: right;
