@@ -4,6 +4,9 @@ export const SET_MARKET = 'SET_MARKET'
 
 export const getMarket = () => async ( dispatch, getState ) => {
   let res = await getSummary()
+
+  res.body = res.body.map(item => Object.assign({ symbol: item.id }, item));
+
   dispatch({
     type: SET_MARKET,
     gemini: res.body.filter( item => item.symbol.indexOf('GEMINI') > -1 ),

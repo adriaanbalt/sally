@@ -1,6 +1,5 @@
 import { getSummary } from '../API'
 
-
 export const SET_MARKET = 'SET_MARKET'
 export const TOGGLE_DRAWER = 'TOGGLE_DRAWER'
 export const SWITCH_EXCHANGE = 'SWITCH_EXCHANGE'
