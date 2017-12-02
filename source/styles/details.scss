@@ -45,4 +45,11 @@
             float: right;
         }
     }
+    .lastUpdate {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 1em;
+        text-align: right;
+    }
 }

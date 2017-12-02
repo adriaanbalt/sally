@@ -1,7 +1,8 @@
 import { getSummary } from '../API'
 
-export const TOGGLE_DRAWER = 'TOGGLE_DRAWER'
+
 export const SET_MARKET = 'SET_MARKET'
+export const TOGGLE_DRAWER = 'TOGGLE_DRAWER'
 export const SWITCH_EXCHANGE = 'SWITCH_EXCHANGE'
 
 export const switchExchange = ( newExchange ) => {
@@ -30,7 +31,6 @@ export const getMarket = () => async ( dispatch, getState ) => {
 }
 
 export const toggleDrawer = ( isDrawerOpen ) => dispatch => {
-  console.log('toggleDrawer', isDrawerOpen)
   dispatch({
     type: TOGGLE_DRAWER,
     isDrawerOpen

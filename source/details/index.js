@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 import { round } from 'lodash'
+import moment from 'moment'
 import { VictoryChart, VictoryLine, VictoryAxis, VictoryCandlestick, VictoryTheme } from 'victory'
 
 import Constants from '../constants'
@@ -23,8 +24,21 @@ import {
 class Details extends Component {
 
   componentWillMount() {
-     this.props.setSummaryBySymbol( this.props.match.params.symbol )
-     this.props.loadGraphDataBySymbol( this.props.match.params.symbol )
+    this.poll()
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.interval)
+  }
+
+  getData() {
+    this.props.setSummaryBySymbol( this.props.match.params.symbol )
+    this.props.loadGraphDataBySymbol( this.props.match.params.symbol )
+  }
+
+  poll() {
+    this.interval = setInterval( () => this.getData(), 10000 )
+    this.getData()
   }
 
   onRiskChange( e ) {
@@ -51,6 +65,14 @@ class Details extends Component {
     return(
       <section id='details' className='page'>
         <h1 className='exchange-name'>{ this.props.match.params.symbol }</h1>
+        {
+          this.props.coin
+          &&
+          <div className="lastUpdate">
+            <p>Last Update</p>
+            <h3>{ moment( this.props.coin.now ).format( "H:mm:ss MM/D/YY" ) }</h3>
+          </div>
+        }
         {
           ( !this.props.isGraphLoaded && !this.props.isDataLoaded )
           &&
