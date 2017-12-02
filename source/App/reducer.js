@@ -14,6 +14,7 @@ export default (state = initialState, action) => {
         ...state,
         isLoading: false,
         gemini: action.gemini,
+        binance: action.binance,
         bittrex: action.bittrex,
         poloniex: action.poloniex,
         winkdex: action.winkdex,
