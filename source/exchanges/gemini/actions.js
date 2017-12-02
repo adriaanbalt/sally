@@ -1,11 +1,11 @@
-import { get } from '../../API'
+import { getSummary } from '../../API'
 export const CHANGE_VIEW = 'CHANGE_VIEW'
 export const SELL = 'SELL'
 export const BUY = 'BUY'
 export const GEMINI = 'GEMINI'
 
 export const getMarket = () => async ( dispatch, getState ) => {
-  let res = await get('/summary/crypto')
+  let res = await getSummary('/summary/crypto')
   dispatch({
     type: GEMINI,
     data: res.body

@@ -14,7 +14,7 @@ import Coin from './components/Coin'
 
 const Bittrex = props => {
   return(
-    <div>
+    <div className='page'>
       <p>Based on data from the <span className='exchange-name'>Bittrex</span> exchange</p>
       <Columns changeViews={props.changeViews} views={props.views}/>
       <div>

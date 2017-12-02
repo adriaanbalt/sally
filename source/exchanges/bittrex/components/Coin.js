@@ -8,7 +8,7 @@ const Coin = (props) => {
 		<Link to={`/${props.symbol}`} className='row columns'>
 			<span className="name">{ replace( props.symbol, props.exchange, '') }</span>
 			<div className="quantities">
-				<span onClick={ props.changeViews } className={`currentPrice`}>{ props.currentPrice }</span>
+				<span onClick={ props.changeViews } className={`currentPrice`}>{ props.price }</span>
 			</div>
 		</Link>
 	)
