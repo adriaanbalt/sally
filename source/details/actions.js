@@ -1,9 +1,9 @@
-import { getProd, getWWW, get } from '../API'
+import { getAutomationPreviewBySymbol, getSummaryBySymbol, getRecordsBySymbol } from '../API'
 export const SET_DETAILS = 'SET_DETAILS'
 export const SET_GRAPH_DATA = 'SET_GRAPH_DATA'
 
 export const setSummaryBySymbol = ( symbol ) => async ( dispatch, getState ) => {
-  let res = await getProd(`/summary/crypto/${symbol}`)
+  let res = await getSummaryBySymbol( { symbol: symbol } )
   dispatch({
     type: SET_DETAILS,
     data: res.body
@@ -11,8 +11,7 @@ export const setSummaryBySymbol = ( symbol ) => async ( dispatch, getState ) => 
 }
 
 export const loadGraphDataBySymbol = ( symbol ) => async ( dispatch, getState ) => {
-  let res = await getWWW(`/records/${ symbol}?period=1m&length=100&startDate=1508677680000`)
-  console.log(' loadGraphDataBySymbol', res.body )
+  let res = await getRecordsBySymbol({ symbol: symbol, period: '60m', length: '100' })
   let results = res.body.map(( entry ) => {
   	return {
 	   	x: parseISOString(entry.date),
@@ -25,6 +24,14 @@ export const loadGraphDataBySymbol = ( symbol ) => async ( dispatch, getState ) 
   })
 }
 
+export const getAutomationPreview = ({ symbol, risk }) => async ( dispatch, getState ) => {
+  let res = await getAutomationPreviewBySymbol({ symbol, risk })
+  console.log('getAutomationPreview', res )
+  // dispatch({
+  //   type: SET_DETAILS,
+  //   data: res.body
+  // })
+}
 
 const parseISOString = (s) => {
   var b = s.split(/\D+/);
