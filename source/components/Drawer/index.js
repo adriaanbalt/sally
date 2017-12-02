@@ -11,6 +11,7 @@ const Drawer = (props) => (
           <li>
             <ul className='sub'>
               <li><Link className={props.whichExchange=='gemini' ? ' is-active': '' } onClick={() => props.switchExchange('gemini')} to='/'>Gemini</Link></li>
+              <li><Link className={props.whichExchange=='binance' ? ' is-active': '' } onClick={() => props.switchExchange('binance')} to='/'>Binance</Link></li>
               <li><Link className={props.whichExchange=='bittrex' ? ' is-active': '' } onClick={() => props.switchExchange('bittrex')} to='/'>Bittrex</Link></li>
               <li><Link className={props.whichExchange=='poloniex' ? ' is-active': '' } onClick={() => props.switchExchange('poloniex')} to='/'>Poloniex</Link></li>
               <li><Link className={props.whichExchange=='winkdex' ? ' is-active': '' } onClick={() => props.switchExchange('winkdex')} to='/'>Winkdex</Link></li>
