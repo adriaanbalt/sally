@@ -60,6 +60,7 @@ const config = {
     contentBase: DIST_PATH,
     publicPath: 'http://localhost:5000',
     port: 5000,
+    disableHostCheck: true,
     historyApiFallback: true
   },
   devtool: 'eval-source-map'
