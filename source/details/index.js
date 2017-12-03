@@ -6,10 +6,9 @@ import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 import { round } from 'lodash'
 import moment from 'moment'
-import { VictoryChart, VictoryLine, VictoryAxis, VictoryCandlestick, VictoryTheme } from 'victory'
 
-import Constants from '../constants'
 import Loader from '../components/Loader'
+import Graph from '../components/Graph'
 
 import {
   setSummaryBySymbol,
@@ -91,30 +90,7 @@ class Details extends Component {
           &&
           this.props.coin.graph
           &&
-          <div className='container-graph'>
-            <VictoryChart>
-              <VictoryAxis 
-                tickFormat={(t) => `${new Date(t).getMonth()}/${new Date(t).getDate()}`} 
-                style={{
-                  axis: {stroke: Constants.COLOR_GRAPH},
-                  tickLabels: {fill: Constants.COLOR_GRAPH, fontSize: 10, padding: 5}
-                }}
-              />
-              <VictoryAxis 
-                dependentAxis 
-                style={{
-                  fill: Constants.COLOR_GRAPH,
-                  axis: {stroke: Constants.COLOR_GRAPH},
-                  tickLabels: {fill: Constants.COLOR_GRAPH, fontSize: 10, padding: 5}
-                }}
-              />
-              <VictoryLine
-                style={{
-                  data: { stroke: Constants.COLOR_GRAPH, strokeWidth: 1 }
-                }}
-                data={this.props.coin.graph} />
-            </VictoryChart>
-          </div>
+          <Graph coin={ this.props.coin }/>
         }
         {
           this.props.user

@@ -4,12 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
 
-import Gemini from '../exchanges/gemini'
-import Binance from '../exchanges/binance'
-import Bittrex from '../exchanges/bittrex'
-import Poloniex from '../exchanges/poloniex'
-import Winkdex from '../exchanges/winkdex'
-
+import Exchange from '../exchange'
 import Loader from '../components/Loader'
 
 import {
@@ -31,33 +26,10 @@ class Market extends Component {
   }
 
   render(){
+    console.log( 'render market', this.props[this.props.whichExchange] )
     return(
       <section id="market">
-        {
-          this.props.whichExchange == "gemini"
-          &&
-          <Gemini data={this.props.gemini}/>
-        }
-        {
-          this.props.whichExchange == "binance"
-          &&
-          <Binance data={this.props.binance}/>
-        }
-        {
-          this.props.whichExchange == "bittrex"
-          &&
-          <Bittrex data={this.props.bittrex}/>
-        }
-        {
-          this.props.whichExchange == "poloniex"
-          &&
-          <Poloniex data={this.props.poloniex}/>
-        }
-        {
-          this.props.whichExchange == "winkdex"
-          &&
-          <Winkdex data={this.props.winkdex}/>
-        }
+        <Exchange exchange={ this.props.whichExchange } data={this.props[this.props.whichExchange]}/>
         {
           this.props.isLoading
           &&
@@ -69,12 +41,12 @@ class Market extends Component {
 }
 
 const mapStateToProps = state => ({
-  isLoading: state.appReducer.isLoading,
-  gemini: state.appReducer.gemini,
-  binance: state.appReducer.binance,
-  bittrex: state.appReducer.bittrex,
-  poloniex: state.appReducer.poloniex,
-  winkdex: state.appReducer.winkdex,
+  isLoading: state.marketReducer.isLoading,
+  gemini: state.marketReducer.gemini,
+  binance: state.marketReducer.binance,
+  bittrex: state.marketReducer.bittrex,
+  poloniex: state.marketReducer.poloniex,
+  winkdex: state.marketReducer.winkdex,
   whichExchange: state.appReducer.whichExchange
 })
 

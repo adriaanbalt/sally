@@ -12,10 +12,11 @@ import {
 import Columns from './components/Columns'
 import Coin from './components/Coin'
 
-const Winkdex = props => {
+const Exchange = props => {
+  console.log( 'render exchange', props )
   return(
     <div className='page'>
-      <p>Based on data from the <span className='exchange-name'>Winkdex</span> exchange</p>
+      <p>Based on data from the <span className='exchange-name'>Exchange</span> exchange</p>
       <Columns changeViews={props.changeViews} views={props.views}/>
       <div>
         {
@@ -26,7 +27,7 @@ const Winkdex = props => {
             if(a.symbol > b.symbol) return -1;
             return 0;
           }).map( (coin, index) => {
-            return <Coin key={`${coin.symbol}-${index}`} exchange={'WINKDEX-'} {...coin}/>
+            return <Coin key={`${coin.symbol}-${index}`} exchange={'GEMINI-'} {...coin}/>
           })
         }
       </div>
@@ -35,7 +36,7 @@ const Winkdex = props => {
 }
 
 const mapStateToProps = state => ({
-  views: state.poloniexReducer.views,
+  views: state.exchangeReducer.views,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -47,4 +48,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Winkdex)
+)(Exchange)

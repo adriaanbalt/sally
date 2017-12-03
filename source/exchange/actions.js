@@ -1,16 +1,7 @@
-import { get } from '../../API'
+import { getSummary } from '../API'
 export const CHANGE_VIEW = 'CHANGE_VIEW'
 export const SELL = 'SELL'
 export const BUY = 'BUY'
-export const BINANCE = 'BINANCE'
-
-export const getMarket = () => async ( dispatch, getState ) => {
-  let res = await get('/summary/crypto')
-  dispatch({
-    type: BINANCE,
-    data: res.body
-  })
-}
 
 export const buy = ( amount, type ) => ( dispatch, getState ) => {
   dispatch({
@@ -29,7 +20,7 @@ export const sell = () => ( dispatch, getState ) => {
 }
 
 export const changeViews = () => ( dispatch, getState ) => {
-  const reducer = getState().binanceReducer;
+  const reducer = getState().exchangeReducer;
   // TODO > handle the quantity view manipulation
   const previousQuantityView = reducer.views.current
   let currentQuantityViewIndex = 0

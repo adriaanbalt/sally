@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames'
 
 const Columns = (props) => {
+     console.log('props', props)
      return (
           <div className='columns columns-header'>
                <span className='name'>Coin</span>

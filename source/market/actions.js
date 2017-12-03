@@ -3,9 +3,11 @@ import { getSummary } from '../API'
 export const SET_MARKET = 'SET_MARKET'
 
 export const getMarket = () => async ( dispatch, getState ) => {
+  console.log("GET MARKET! ACTION ")
   let res = await getSummary()
 
   res.body = res.body.map(item => Object.assign({ symbol: item.id }, item));
+  console.log('res.body', res.body)
 
   dispatch({
     type: SET_MARKET,
