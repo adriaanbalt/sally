@@ -1,4 +1,3 @@
-import { getSummary } from '../API'
 export const CHANGE_VIEW = 'CHANGE_VIEW'
 export const SELL = 'SELL'
 export const BUY = 'BUY'
