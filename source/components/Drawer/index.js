@@ -9,16 +9,14 @@ const Drawer = (props) => (
       <nav>
         <ul>
           <li>
-            <ul className='sub'>
-              <li><Link className={props.whichExchange=='gemini' ? ' is-active': '' } onClick={() => props.switchExchange('gemini')} to='/'>Gemini</Link></li>
-              <li><Link className={props.whichExchange=='binance' ? ' is-active': '' } onClick={() => props.switchExchange('binance')} to='/'>Binance</Link></li>
-              <li><Link className={props.whichExchange=='bittrex' ? ' is-active': '' } onClick={() => props.switchExchange('bittrex')} to='/'>Bittrex</Link></li>
-              <li><Link className={props.whichExchange=='poloniex' ? ' is-active': '' } onClick={() => props.switchExchange('poloniex')} to='/'>Poloniex</Link></li>
-              <li><Link className={props.whichExchange=='winkdex' ? ' is-active': '' } onClick={() => props.switchExchange('winkdex')} to='/'>Winkdex</Link></li>
-            </ul>
+            <Link className={props.whichExchange=='gemini' ? ' is-active': '' } onClick={() => props.switchExchange('gemini')} to='/'>Gemini</Link>
+            <Link className={props.whichExchange=='binance' ? ' is-active': '' } onClick={() => props.switchExchange('binance')} to='/'>Binance</Link>
+            <Link className={props.whichExchange=='bittrex' ? ' is-active': '' } onClick={() => props.switchExchange('bittrex')} to='/'>Bittrex</Link>
+            <Link className={props.whichExchange=='poloniex' ? ' is-active': '' } onClick={() => props.switchExchange('poloniex')} to='/'>Poloniex</Link>
+            <Link className={props.whichExchange=='winkdex' ? ' is-active': '' } onClick={() => props.switchExchange('winkdex')} to='/'>Winkdex</Link>
           </li>
           <li>
-            <Link to='/about' onClick={props.closeDrawer}>About</Link>
+            <Link to='/about' className='btn-about' onClick={props.closeDrawer}>About</Link>
           </li>
         </ul>
       </nav>

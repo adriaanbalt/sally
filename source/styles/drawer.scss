@@ -32,17 +32,16 @@
 			border-bottom: 1px solid $color-black;
 		}
 		ul {
-			&.sub {
-				li {
-					a {
-					}
-				}
-			}
 			li {
+				margin-bottom: 195px;
 				cursor: pointer;
 				margin: 0em;
 			}
 		}
+	}
+	.btn-about {
+	    font-size: 30px;
+    	margin-top: 40px;
 	}
 	.logo {
 	  width: 40px;

@@ -32,9 +32,6 @@
 			font-size: 15px;
 		}
 		.quantities {
-			position: absolute;
-			top: auto;
-			transform: translateY(0);
 			.quantity {
 				font-size: 15px;
 			}
@@ -47,30 +44,19 @@
 		color: $color-purple;
 	}
 	.name {
-		position: absolute;
 		color: $color-font;
 		line-height: $row-height;
 		vertical-align: middle;
+		float: left;
 	}
 	.quantities {
-		display: inline-block;
 		float: right;
-		width: 25%;
+		display: inline-block;
 		height: $row-height;
 	    text-align: right;
 		.quantity {
-			line-height: $row-height;
-			vertical-align: middle;
-			position: absolute;
-			top: 0;
-			right: 0;
-			display: none;
-			width: 135px;
+    		line-height: $row-height;
 			text-align: right;
-			overflow: hidden;
-			&.is-active {
-				display: block;
-			}
 		}
 	}
 }

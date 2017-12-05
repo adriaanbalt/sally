@@ -16,7 +16,7 @@ const Exchange = props => {
   console.log( 'render exchange', props )
   return(
     <div className='page'>
-      <p>Based on data from the <span className='exchange-name'>Exchange</span> exchange</p>
+      <p>Based on data from the <span className='exchange-name'>{ props.exchange }</span> exchange</p>
       <Columns changeViews={props.changeViews} views={props.views}/>
       <div>
         {
