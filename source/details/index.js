@@ -10,6 +10,8 @@ import moment from 'moment'
 import Loader from '../components/Loader'
 import Graph from '../components/Graph'
 
+import AutomationBasic from './components/automation/Basic'
+
 import {
   setSummaryBySymbol,
   loadGraphDataBySymbol,
@@ -61,6 +63,7 @@ class Details extends Component {
   }
 
   render() {
+    console.log( 'details render', this.props)
     return(
       <section id='details' className='page'>
         <h1 className='exchange-name'>{ this.props.match.params.symbol }</h1>
@@ -97,12 +100,7 @@ class Details extends Component {
           &&
           this.props.coin
           &&
-          <div className='automation'>
-            <h2>Risk Tolerance: <span>{ this.getRisk() / 100 }</span></h2>
-            <input className='slider' type='range' min='0' max='100' value={ this.getRisk() } step='1' onChange={ this.onRiskChange.bind(this) }/>
-            <small className='low'>Low</small>
-            <small className='high'>High</small>
-          </div>
+          <AutomationBasic getRisk={this.getRisk.bind(this)} onRiskChange={this.onRiskChange.bind(this)}/>
         }
         {
           this.props.coin
