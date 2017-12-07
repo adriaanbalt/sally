@@ -4,32 +4,22 @@ import { Link } from 'react-router-dom'
 
 import Constants from '../../constants'
 import { VictoryChart, VictoryLine, VictoryAxis, VictoryCandlestick, VictoryTheme } from 'victory'
+import MetricsGraphics from 'react-metrics-graphics';
 
-const Graph = (props) => (
-  <div className='container-graph'>
-    <VictoryChart>
-      <VictoryAxis 
-        tickFormat={(t) => `${new Date(t).getMonth()}/${new Date(t).getDate()}`} 
-        style={{
-          axis: {stroke: Constants.COLOR_GRAPH},
-          tickLabels: {fill: Constants.COLOR_GRAPH, fontSize: 10, padding: 5}
-        }}
-      />
-      <VictoryAxis 
-        dependentAxis 
-        style={{
-          fill: Constants.COLOR_GRAPH,
-          axis: {stroke: Constants.COLOR_GRAPH},
-          tickLabels: {fill: Constants.COLOR_GRAPH, fontSize: 10, padding: 5}
-        }}
-      />
-      <VictoryLine
-        style={{
-          data: { stroke: Constants.COLOR_GRAPH, strokeWidth: 1 }
-        }}
-        data={props.coin.graph} />
-    </VictoryChart>
-  </div>
-)
+const Graph = (props) => {
+  console.log( 'Graphi', props )
+  return (
+    <div className='container-graph'>
+      <MetricsGraphics
+        title="Downloads"
+        description="This graphic shows a time-series of downloads."
+        data={ props.coin.graph }
+        width={600}
+        height={250}
+        x_accessor="date"
+        y_accessor="value" />
+    </div>
+  )
+}
 
 export default Graph
