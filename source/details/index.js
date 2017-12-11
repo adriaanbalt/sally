@@ -15,7 +15,8 @@ import AutomationBasic from './components/automation/Basic'
 import {
   setSummaryBySymbol,
   loadGraphDataBySymbol,
-  getAutomationPreview
+  getAutomationPreview,
+  getEstimatedReturns
 } from './actions'
 
 import {
@@ -38,7 +39,7 @@ class Details extends Component {
   }
 
   poll() {
-    this.interval = setInterval( () => this.getData(), 10000 )
+    // this.interval = setInterval( () => this.getData(), 10000 )
     this.getData()
   }
 
@@ -63,7 +64,6 @@ class Details extends Component {
   }
 
   render() {
-    console.log( 'details render', this.props)
     return(
       <section id='details' className='page'>
         <h1 className='exchange-name'>{ this.props.match.params.symbol }</h1>
@@ -133,6 +133,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   loadGraphDataBySymbol,
   setRiskPercentageBySymbol,
   getAutomationPreview,
+  getEstimatedReturns,
 }, dispatch)
 
 export default connect(

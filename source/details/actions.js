@@ -1,4 +1,4 @@
-import { getAutomationPreviewBySymbol, getSummaryBySymbol, getRecordsBySymbol } from '../API'
+import { getEstimatedReturnsBySymbol, getAutomationPreviewBySymbol, getSummaryBySymbol, getRecordsBySymbol } from '../API'
 export const SET_DETAILS = 'SET_DETAILS'
 export const SET_GRAPH_DATA = 'SET_GRAPH_DATA'
 
@@ -11,22 +11,17 @@ export const setSummaryBySymbol = ( symbol ) => async ( dispatch, getState ) => 
 }
 
 export const loadGraphDataBySymbol = ( symbol ) => async ( dispatch, getState ) => {
-  let res = await getRecordsBySymbol({ symbol: symbol, period: '60m', length: '100' })
-  let results = res.body.map(( entry ) => {
-  	return {
-	   	x: parseISOString(entry.date),
-	   	y: entry.close,
-	  }
-	})
+  let res = await getEstimatedReturnsBySymbol({ symbol })
   dispatch({
     type: SET_GRAPH_DATA,
-    data: results
+    data: res.body.records.map( ( record ) => Object.assign(
+      record, { date: new Date(record.date) }
+    ))
   })
 }
 
 export const getAutomationPreview = ({ symbol, risk }) => async ( dispatch, getState ) => {
   let res = await getAutomationPreviewBySymbol({ symbol, risk })
-  console.log('getAutomationPreview', res )
   // dispatch({
   //   type: SET_DETAILS,
   //   data: res.body
