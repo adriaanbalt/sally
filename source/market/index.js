@@ -26,7 +26,6 @@ class Market extends Component {
   }
 
   render(){
-    console.log( 'render market', this.props[this.props.whichExchange] )
     return(
       <section id="market">
         <Exchange exchange={ this.props.whichExchange } data={this.props[this.props.whichExchange]}/>

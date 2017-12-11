@@ -1,4 +1,4 @@
-import { CHANGE_VIEW, SELL, BUY, GEMINI } from './actions'
+import { CHANGE_VIEW, SELL, BUY, SET_DATA } from './actions'
 
 const initialState = {
   data: [],
@@ -46,7 +46,7 @@ export default (state = initialState, action) => {
       }
 
 
-    case GEMINI:{
+    case SET_DATA:{
       return {
         ...state,
         data:[

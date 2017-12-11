@@ -13,7 +13,6 @@ import Columns from './components/Columns'
 import Coin from './components/Coin'
 
 const Exchange = props => {
-  console.log( 'render exchange', props )
   return(
     <div className='page'>
       <p>Based on data from the <span className='exchange-name'>{ props.exchange }</span> exchange</p>
@@ -27,7 +26,7 @@ const Exchange = props => {
             if(a.symbol > b.symbol) return -1;
             return 0;
           }).map( (coin, index) => {
-            return <Coin key={`${coin.symbol}-${index}`} exchange={'GEMINI-'} {...coin}/>
+            return <Coin key={`${coin.symbol}-${index}`} exchange={ props.exchange } {...coin}/>
           })
         }
       </div>
