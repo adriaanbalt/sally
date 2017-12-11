@@ -25,3 +25,4 @@ export const getSummaryBySymbol = ({ symbol }) => apiRequest(Object.assign({}, {
 export const getRecordsBySymbol = ({ symbol, period, length }) => apiRequest(Object.assign({}, { verb: 'GET', route: `${Constants.API}/2/records/${ symbol }?period=${ period }&length=${ length }` }))
 export const getSummary = () => apiRequest(Object.assign({}, { verb: 'GET', route: `${Constants.API}/2/summary/crypto` }))
 export const getAutomationPreviewBySymbol = ({ symbol, risk }) => apiRequest(Object.assign({}, { verb: 'POST', route: `https://d1b0a1df.ngrok.io/api/1/automation`, body: { symbol, risk } }))
+export const getEstimatedReturnsBySymbol = ({symbol}) => apiRequest(Object.assign({}, { verb: 'GET', route: `https://app-production.bloo.financial/indices/nov062017/31/estimated-returns?symbol=${symbol}` }))
