@@ -96,13 +96,6 @@ class Details extends Component {
           <Graph coin={ this.props.coin }/>
         }
         {
-          this.props.user
-          &&
-          this.props.coin
-          &&
-          <AutomationBasic getRisk={this.getRisk.bind(this)} onRiskChange={this.onRiskChange.bind(this)}/>
-        }
-        {
           this.props.coin
           &&
           <div className='buttons'>
@@ -111,10 +104,18 @@ class Details extends Component {
           </div>
         }
         {
+          false
+          &&
+          this.props.user
+          &&
           this.props.coin
           &&
-          <div className='modals'>
-          </div>
+          <AutomationBasic getRisk={this.getRisk.bind(this)} onRiskChange={this.onRiskChange.bind(this)}/>
+        }
+        {
+          this.props.user
+          &&
+          <UserAssetDetails user={this.props.user} coin={this.props.coin}/>
         }
       </section>
     )

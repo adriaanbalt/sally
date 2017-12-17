@@ -8,6 +8,13 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
 
+    case SET_PORTFOLIO: {
+      return {
+        ...state,
+        portfolio: action.portfolio,
+      }
+    }
+
     case SET_RISK_PERCENTAGE_BY_SYMBOL: {
       let found = false
       let folio = state.portfolio.reduce((portfolio, asset) => {
