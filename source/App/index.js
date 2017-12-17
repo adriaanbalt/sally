@@ -39,6 +39,7 @@ class App extends Component {
                 <Route exact path='/' component={Market} />
                 <Route path='/about' component={About} />
                 <Route path='/:symbol' component={Details} />
+                <Route path='/user/:user_id' component={User} />
                 <Route component={NotFound} />
               </Switch>
               <Footer />

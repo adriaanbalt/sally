@@ -10,6 +10,8 @@ import moment from 'moment'
 import Loader from '../components/Loader'
 import Graph from '../components/Graph'
 
+
+import UserAssetDetails from './components/UserAssetDetails'
 import AutomationBasic from './components/automation/Basic'
 
 import {

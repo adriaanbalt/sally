@@ -1,4 +1,4 @@
-import { SET_RISK_PERCENTAGE_BY_SYMBOL } from './actions'
+import { SET_RISK_PERCENTAGE_BY_SYMBOL, SET_PORTFOLIO } from './actions'
 
 const initialState = {
   defaultRisk: 50,
