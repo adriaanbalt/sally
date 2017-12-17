@@ -18,10 +18,18 @@ var UserSchema = new mongoose.Schema({
         type: Date,
         default: new Date()
     },
-    highscore:{
-      _id: String,
-      score: Number
-    },
+    avatar: String,
+    description: String,
+    coinsOwned: [
+        { 
+            symbol: String,
+            quantity: Number
+        }
+    ],
+    exchanges: { 
+        name: String,
+        url: String
+    }
     google: {
       _id: String,
       photo: String,
