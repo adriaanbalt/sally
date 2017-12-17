@@ -13,6 +13,7 @@ import Drawer from 'components/Drawer'
 import Market from 'source/market'
 import About from 'source/about'
 import Details from 'source/details'
+import User from 'source/User'
 import NotFound from 'source/NotFound'
 
 import {
