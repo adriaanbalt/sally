@@ -28,6 +28,7 @@
     "build_scripts_dir": "bin"
   },
   "scripts": {
+    "analyze": "webpack-dev-server -d --inline --hot --config $npm_package_config_build_scripts_dir/webpack/webpack.analyze.config.js --watch --progress",
     "start": "webpack-dev-server -d --inline --hot --config $npm_package_config_build_scripts_dir/webpack/webpack.dev.config.js --watch --progress",
     "build": "webpack -d --config $npm_package_config_build_scripts_dir/webpack/webpack.prod.config.js",
     "prod": "node server"
@@ -35,18 +36,17 @@
   "dependencies": {
     "babel-cli": "^6.24.1",
     "babel-loader": "^7.1.1",
-    "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.24.1",
-    "bluebird": "^3.5.0",
     "classnames": "^2.2.5",
     "cookie-parser": "^1.4.3",
     "css-loader": "^0.28.4",
+    "dotenv": "^4.0.0",
     "lodash": "^4.17.4",
-    "moment": "^2.19.3",
-    "node-sass": "^4.5.3",
+    "morgan": "^1.9.0",
+    "node-sass": "^4.7.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-metrics-graphics": "^0.6.3",
@@ -60,10 +60,10 @@
     "style-loader": "^0.18.2",
     "superagent": "^3.5.2",
     "uglifyjs-webpack-plugin": "^1.0.0-beta.3",
-    "victory": "^0.24.0",
     "webpack": "^3.1.0"
   },
   "devDependencies": {
+    "webpack-bundle-analyzer": "^2.9.1",
     "webpack-dev-server": "^2.5.1"
   }
 }
