@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 import { round } from 'lodash'
-import moment from 'moment'
 
 import Loader from '../components/Loader'
 import Graph from '../components/Graph'
@@ -23,7 +22,7 @@ import {
 
 import {
   setRiskPercentageBySymbol
-} from '../user/actions'
+} from '../User/actions'
 
 class Details extends Component {
 
@@ -69,14 +68,6 @@ class Details extends Component {
     return(
       <section id='details' className='page'>
         <h1 className='exchange-name'>{ this.props.match.params.symbol }</h1>
-        {
-          this.props.coin
-          &&
-          <div className="lastUpdate">
-            <p>Last Update</p>
-            <h3>{ moment( this.props.coin.now ).format( "H:mm:ss MM/D/YY" ) }</h3>
-          </div>
-        }
         {
           ( !this.props.isGraphLoaded && !this.props.isDataLoaded )
           &&
