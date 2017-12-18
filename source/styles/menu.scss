@@ -50,7 +50,7 @@ $button-transistion-duration: 0.3s;     // The transition duration
   left: $button-pad;
   right: $button-pad;
   height: $bar-thickness;
-  background: rgb(255,255,255);
+  background-color: $color-black;
 }
 
 .c-hamburger span::before,
@@ -60,7 +60,7 @@ $button-transistion-duration: 0.3s;     // The transition duration
   left: 0;
   width: 100%;
   height: $bar-thickness;
-  background-color: #fff;
+  background-color: $color-black;
   content: "";
 }
 

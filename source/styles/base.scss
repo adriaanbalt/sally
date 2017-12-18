@@ -1,13 +1,13 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: $font-family;
   background-color: $color-bg;
   color: $color-font;
 }
 
 button {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: $font-family;
 }
 
 // * {
@@ -22,6 +22,11 @@ button {
 main {
 }
 .drawer-open {
+  header {
+    transition: all 500ms;
+    filter: blur(2px);
+    margin-left: 80%;
+  }
   .wrapper{
     .content {
       filter: blur(2px);

@@ -9,17 +9,17 @@
 	}
 	.row { 
 		width: 100%;
-		height: $row-height;
 		position: relative;
 		padding: 20px 0;
-		border-bottom: 1px $color-font solid;
-		&:hover {
-			font-weight: 700;
-		}
-	}
-	.columns {
-		.inner {
-		}
+		border-radius: 5px;
+		padding: $padding;
+	    box-sizing: border-box;
+	    background: $color-purple;
+	    color: $color-white;
+	    margin: .25em 0;
+    	box-shadow: 0px 3px 7px #99B;
+    	vertical-align: middle;
+	    @include clearFix();
 	}
 	.columns-header {
 		width: 100%;
@@ -39,23 +39,15 @@
 			font-weight: 700;
 		}
 	}
-	.exchange-name {
-		color: $color-purple;
-	}
 	.name {
-		color: $color-font;
+		float: left;
 		line-height: $row-height;
 		vertical-align: middle;
-		float: left;
 	}
-	.quantities {
+	.quantity {
 		float: right;
 		display: inline-block;
-		height: $row-height;
-	    text-align: right;
-		.quantity {
-    		line-height: $row-height;
-			text-align: right;
-		}
+		line-height: $row-height;
+		text-align: right;
 	}
 }

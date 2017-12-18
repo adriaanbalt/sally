@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 import { replace } from 'lodash'
 
 const Coin = (props) => {
-	console.log( "Coin", props )
+	// if positive > add class for 'lightgreen'
+	// if negative > add class for 'red'
+	// need percent change
 	return (
 		<Link to={`/${props.id}`} className='row columns'>
 			<span className="name">{ replace( props.symbol, props.exchange, '') }</span>
-			<div className="quantities">
-				<span onClick={ props.changeViews } className={`currentPrice`}>{ props.price }</span>
-			</div>
+			<span className={`quantity currentPrice`}>{ props.price }</span>
 		</Link>
 	)
 }

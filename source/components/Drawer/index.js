@@ -4,16 +4,12 @@ import { Link } from 'react-router-dom'
 const Drawer = (props) => (
   <div id='drawer' className={props.isOpen ? ' is-active': '' }>
     <div className='inner'>
-      <img className='logo' src='logo.png' />
+      <img className='logo' src='logo-black.png' />
       <h1 className='app-name'>Sally</h1>
       <nav>
         <ul>
           <li>
-            <Link className={props.whichExchange=='gemini' ? ' is-active': '' } onClick={() => props.switchExchange('gemini')} to='/'>Gemini</Link>
-            <Link className={props.whichExchange=='binance' ? ' is-active': '' } onClick={() => props.switchExchange('binance')} to='/'>Binance</Link>
-            <Link className={props.whichExchange=='bittrex' ? ' is-active': '' } onClick={() => props.switchExchange('bittrex')} to='/'>Bittrex</Link>
-            <Link className={props.whichExchange=='poloniex' ? ' is-active': '' } onClick={() => props.switchExchange('poloniex')} to='/'>Poloniex</Link>
-            <Link className={props.whichExchange=='winkdex' ? ' is-active': '' } onClick={() => props.switchExchange('winkdex')} to='/'>Winkdex</Link>
+            <Link to='/watchlist' className='btn-about' onClick={props.closeDrawer}>Watchlist</Link>
           </li>
           <li>
             <Link to='/about' className='btn-about' onClick={props.closeDrawer}>About</Link>

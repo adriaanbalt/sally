@@ -14,22 +14,18 @@ import Coin from './components/Coin'
 
 const Exchange = props => {
   return(
-    <div className='page'>
-      <p>Based on data from the <span className='exchange-name'>{ props.exchange }</span> exchange</p>
-      <Columns changeViews={props.changeViews} views={props.views}/>
-      <div>
-        {
-          props.data
-          &&
-          props.data.sort( (a,b) => {
-            if(a.symbol < b.symbol) return 1;
-            if(a.symbol > b.symbol) return -1;
-            return 0;
-          }).map( (coin, index) => {
-            return <Coin key={`${coin.symbol}-${index}`} exchange={ props.exchange } {...coin}/>
-          })
-        }
-      </div>
+    <div>
+      {
+        props.data
+        &&
+        props.data.sort( (a,b) => {
+          if(a.symbol < b.symbol) return 1;
+          if(a.symbol > b.symbol) return -1;
+          return 0;
+        }).map( (coin, index) => {
+          return <Coin key={`${coin.symbol}-${index}`} exchange={ props.exchange } {...coin}/>
+        })
+      }
     </div>
   )
 }

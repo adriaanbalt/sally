@@ -5,15 +5,16 @@ h1 {
 	letter-spacing: .6px;
 }
 h2 {
-	color: $color-white;
+	color: $color-font;
 
 }
 h4 {
-	color: $color-white;
+	color: $color-font;
 	font-size: 16px;
 	font-weight: 400;
 }
 a {
 	font-size: 18px;
-	color: $color-white;
+	color: $color-font;
+	// font-weight: 700;
 }
