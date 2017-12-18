@@ -4,7 +4,8 @@ import appReducer from './App/reducer'
 import marketReducer from './market/reducer'
 import exchangeReducer from './exchange/reducer'
 import detailsReducer from './details/reducer'
-import userReducer from './user/reducer'
+import userReducer from './User/reducer'
+import loginReducer from './Login/reducer'
 
 export default combineReducers({
   routing: routerReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
   exchangeReducer,
   detailsReducer,
   userReducer,
+  loginReducer,
 })
