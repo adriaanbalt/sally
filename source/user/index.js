@@ -13,7 +13,6 @@ class User extends Component {
   render() {
     return(
       <section id='user' className='page'>
-        <LoginForm />
       </section>
     )
   }
