@@ -14,6 +14,7 @@ import Market from 'source/market'
 import About from 'source/about'
 import Details from 'source/details'
 import User from 'source/User'
+import Login from 'source/Login'
 import NotFound from 'source/NotFound'
 
 import {
@@ -39,8 +40,9 @@ class App extends Component {
               <Switch>
                 <Route exact path='/' component={Market} />
                 <Route path='/about' component={About} />
+                <Route path='/login' component={Login} />
+                <Route path='/user' component={User} />
                 <Route path='/:symbol' component={Details} />
-                <Route path='/user/:user_id' component={User} />
                 <Route component={NotFound} />
               </Switch>
               <Footer />
