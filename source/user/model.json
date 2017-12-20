@@ -1,0 +1,19 @@
+{
+	"name": "",
+	"phoneNumber": "",
+	"accessToken": "",
+	"portfolios": [
+		{
+			"value": "", // total value
+			"percent": "",
+			"positions" : [
+				{
+					"symbol": "",
+					"value": "",
+					"price": "",
+					"percent": ""
+				}
+			]
+		}
+	]
+}
