@@ -12,17 +12,22 @@ import {
 } from './actions'
 
 import {
+  setUserLocal,
   validateAccessToken,
 } from '../User/actions'
 
 class Login extends Component {
 
   onSubmitPhoneNumber() {
+    this.props.setUserLocal({ phoneNumber: this.props.phoneNumber })
     this.props.onSubmitPhoneNumber(this.props.phoneNumber)
   }
 
-  onSubmitCode() {
-    this.props.validateAccessToken(this.props.phoneNumber, this.props.code)
+  async onSubmitCode() {
+    let accessToken = await this.props.validateAccessToken(this.props.phoneNumber, this.props.code)
+    if ( accessToken ) {
+      this.props.setUserLocal({ phoneNumber: this.props.phoneNumber, accessToken: accessToken })
+    }
   }
 
   renderForm() {
@@ -89,6 +94,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   setPhoneNumber,
   setCode,
   onSubmitPhoneNumber,
+  setUserLocal,
   validateAccessToken,
 }, dispatch)
 

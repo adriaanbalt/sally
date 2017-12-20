@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import Config from '../config'
+import Config from '../constants'
 
 const locations = ['cookie', 'local', 'session']
 
@@ -16,6 +16,8 @@ try {
 
 export const storeValue = (location, key, data) =>
 {
+
+  console.log( 'storeValue', location, key, data )
 
   if (!location || !locations.includes(location)) {
     return false

@@ -1,4 +1,4 @@
-import { authSendPhoneNumber, authSendCode } from '../API'
+import { authSendPhoneNumber, authSendCode, setUserLocalStorage } from '../API'
 
 export const ACCESS_GRANTED = 'ACCESS_GRANTED'
 export const AUTH_ERROR = 'AUTH_ERROR'
@@ -48,6 +48,7 @@ export const onSubmitPhoneNumber = ( phoneNumber ) => async ( dispatch, getState
 export const onSubmitCode = ( phoneNumber, code ) => async ( dispatch, getState ) => {
   try {
     let res = await authSendCode({ phoneNumber, code })
+    
     dispatch({
       type: ACCESS_GRANTED,
       status: 'VALID_CODE',

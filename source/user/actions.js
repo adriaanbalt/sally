@@ -1,6 +1,6 @@
 import { debounce } from 'lodash'
 
-import { getAutomationPreviewBySymbol } from '../API'
+import { setUserLocalStorage } from '../API'
 
 export const SET_PORTFOLIO = 'SET_PORTFOLIO'
 export const SET_RISK_PERCENTAGE_BY_SYMBOL = 'SET_RISK_PERCENTAGE_BY_SYMBOL'
@@ -19,4 +19,26 @@ export const setRiskPercentageBySymbol = ({ symbol, risk }) => ( dispatch, getSt
     risk: parseInt(risk, 10),
   })
   debounce( () => getAutomationPreviewBySymbol({ symbol, risk }), 1000 )
+}
+
+export const validateAccessToken = ( phoneNumber, code ) => async ( dispatch, getState ) => {
+  try {
+    let res = await authSendCode({ phoneNumber, code })
+    dispatch({
+      type: SET_ACCESS_TOKEN,
+      status: 'VALID_CODE',
+      accessToken: res.body.accessToken
+    })
+    return res.body.accessToken
+  } catch( err ){
+    dispatch({
+      type: AUTH_ERROR,
+      error: err.message,
+    })
+  }
+}
+
+export const setUserLocal = ( userObj ) => async ( dispatch, getState ) => {
+	console.log('setUserLocal', userObj)
+	setUserLocalStorage( userObj )
 }
