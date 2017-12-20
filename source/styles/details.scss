@@ -16,12 +16,9 @@
         max-width: 900px;
     }
     .buttons {
-        margin: 0 0 $padding  0;
-        padding: $padding;
-        background-color: rgba($color-purple-light,.25);
         button {
-            width: 50%;
-            border: 1px solid $color-bg;
+            width: 45%;
+            margin: 0 2.5%;
         }
     }
     .exchange-name {

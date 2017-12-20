@@ -13,5 +13,7 @@ button {
 	&:hover {
 		background-color: $color-white;
 		color: $color-purple;
+		border-radius: 5px;
+		border:  1px solid $color-black;
 	}
 }

@@ -1,5 +1,5 @@
 .mg-active-datapoint {
-    fill: $color-white;
+    fill: $color-black;
     font-size: 0.9rem;
     font-weight: 400;
     // opacity: 0.8;
@@ -61,12 +61,12 @@ text.mg-barplot-group-label {
 .mg-baselines line {
     opacity: 1;
     shape-rendering: auto;
-    stroke: $color-white;
+    stroke: $color-black;
     stroke-width: 1px;
 }
 
 .mg-baselines text {
-    fill: $color-white;
+    fill: $color-black;
     font-size: 0.9rem;
     opacity: 0.6;
     stroke: none;
@@ -77,7 +77,7 @@ text.mg-barplot-group-label {
 }
 
 .mg-category-guides line {
-    stroke: $color-white;
+    stroke: $color-black;
 }
 
 .mg-header {
@@ -115,7 +115,7 @@ text.mg-barplot-group-label {
 }
 
 .mg-data-table thead tr th {
-    border-bottom: 1px solid $color-white;
+    border-bottom: 1px solid $color-black;
     cursor: default;
     font-size: 1.1rem;
     font-weight: normal;
@@ -134,7 +134,7 @@ text.mg-barplot-group-label {
 }
 
 .mg-data-table .secondary-title {
-    color: $color-font;
+    color: $color-black;
 }
 
 .mg-data-table tbody tr td {
@@ -266,12 +266,12 @@ tspan.hist-symbol {
 .mg-markers line {
     opacity: 1;
     shape-rendering: auto;
-    stroke: $color-white;
+    stroke: $color-black;
     stroke-width: 1px;
 }
 
 .mg-markers text {
-    fill: $color-white;
+    fill: $color-black;
     font-size: 0.8rem;
 }
 
@@ -342,14 +342,14 @@ tspan.mg-points-mono {
 
 .mg-x-rug-mono,
 .mg-y-rug-mono {
-    stroke: $color-white;
+    stroke: $color-black;
 }
 
 .mg-x-axis line,
 .mg-y-axis line {
     opacity: 1;
     shape-rendering: auto;
-    stroke: $color-white;
+    stroke: $color-black;
     opacity: .5;
     stroke-width: 1px;
 }
@@ -357,7 +357,7 @@ tspan.mg-points-mono {
 .mg-x-axis text,
 .mg-y-axis text,
 .mg-histogram .axis text {
-    fill: $color-white;
+    fill: $color-black;
     font-size: 0.9rem;
 }
 
@@ -384,14 +384,14 @@ tspan.mg-points-mono {
 }
 
 .mg-year-marker text {
-    fill: $color-white;
+    fill: $color-black;
     font-size: 0.7rem;
 }
 
 .mg-year-marker line {
     opacity: 1;
     shape-rendering: auto;
-    stroke: $color-white;
+    stroke: $color-black;
     stroke-width: 1px;
 }
 

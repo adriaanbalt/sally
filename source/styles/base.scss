@@ -44,6 +44,7 @@ main {
   // padding: $padding;
   transition: all 500ms;
   margin-left: 0;
+  margin-top: $nav-height;
   &:before{
     content: '';
     width: 100%;
@@ -62,8 +63,7 @@ main {
 }
 .content {
   .page {
-    margin-top: $nav-height;
-    padding: $padding;
+    padding: 0 $padding $padding $padding;
   }
   footer {
     margin: $padding;
