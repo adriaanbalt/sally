@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Header = (props) => (
   <header>
     <div className="container-logo">
-      <Link to="/" className="anchor-home"><img className="logo" src="logo-black.png" /></Link>
+      <Link to="/" className="anchor-home"><img className="logo" src="logo-white.png" /></Link>
       <div onClick={ props.toggleDrawer } className={`c-hamburger c-hamburger--htx${props.isOpen ? ' is-active': '' }`}>
         <span>toggle menu</span>
       </div>
