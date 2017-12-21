@@ -22,51 +22,38 @@ class Login extends Component {
     this.props.validateCodeGetAccessToken(this.props.phoneNumber, this.props.code)
   }
 
-  renderForm() {
-    if ( this.props.accessToken ){
-      return (
-        <p>AccessToken: { this.props.accessToken }</p>
-      )
-    }
-    return (
-      <div className='card'>
-        {
-          this.props.status !== 'VALID_CODE'
-          &&
-          <div className='input-wrapper'>
-            <input id='input-phoneNumber' placeholder={'Phone Number'} onChange={ (e) => {
-                this.props.setPhoneNumber({phoneNumber:e.target.value})
-              }}/>
-            <button onClick={ this.onSubmitPhoneNumber.bind(this) }>REQUEST VERIFICATION CODE</button>
-          </div>
-        }
-        {
-          this.props.status === 'VALID_PHONE_NUMBER'
-          &&
-          this.props.phoneNumber
-          &&
-          <div className='input-wrapper'>
-            <input id='input-code' placeholder={'Verification Code'} onChange={ (e) => {
-                this.props.setCode({code:e.target.value})
-              }}/>
-            <button onClick={ this.onSubmitCode.bind(this) }>SUBMIT</button>
-          </div>
-        }
-        {
-          this.props.error
-          &&
-          <p>{ this.props.error }</p>
-        }
-      </div>
-    )
-  }
-
   render(){
     return(
-      <div id='login' className='page'>
-        {
-          this.renderForm()
-        }
+      <div id='login'>
+        <div className='card'>
+          {
+            this.props.status !== 'VALID_CODE'
+            &&
+            <div className='input-wrapper'>
+              <input id='input-phoneNumber' placeholder={'Phone Number'} onChange={ (e) => {
+                  this.props.setPhoneNumber({phoneNumber:e.target.value})
+                }}/>
+              <button onClick={ this.onSubmitPhoneNumber.bind(this) }>REQUEST VERIFICATION CODE</button>
+            </div>
+          }
+          {
+            this.props.status === 'VALID_PHONE_NUMBER'
+            &&
+            this.props.phoneNumber
+            &&
+            <div className='input-wrapper'>
+              <input id='input-code' placeholder={'Verification Code'} onChange={ (e) => {
+                  this.props.setCode({code:e.target.value})
+                }}/>
+              <button onClick={ this.onSubmitCode.bind(this) }>SUBMIT</button>
+            </div>
+          }
+          {
+            this.props.error
+            &&
+            <p>{ this.props.error }</p>
+          }
+        </div>
       </div>
     )
   }

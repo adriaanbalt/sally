@@ -39,6 +39,7 @@ class User extends Component {
           &&
           <UserDetails {...this.props.user} />
         }
+        <Login />
       </section>
     )
   }
