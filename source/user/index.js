@@ -16,7 +16,6 @@ import {
 class User extends Component {
 
   componentWillMount() {
-    console.log( 'User.componentWillMount', this.props.user.accessToken)
     if ( this.props.user.accessToken ) {
       this.props.getUserDataFromApi()
     } 
@@ -39,7 +38,6 @@ class User extends Component {
           &&
           <UserDetails {...this.props.user} />
         }
-        <Login />
       </section>
     )
   }
