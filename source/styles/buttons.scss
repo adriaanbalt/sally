@@ -6,6 +6,7 @@ button {
 	padding: .5em 1em;
 	line-height: 15px;
 	vertical-align: top;
+	border-radius: 15px;
 	&.is-active {
 		background-color: rgba($color-white,.9);
 		color: $color-purple;
@@ -13,7 +14,6 @@ button {
 	&:hover {
 		background-color: $color-white;
 		color: $color-purple;
-		border-radius: 5px;
 		border:  1px solid $color-black;
 	}
 }
