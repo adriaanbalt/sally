@@ -65,51 +65,32 @@ class Details extends Component {
   }
 
   render() {
+    console.log('this.props', this.props)
     return(
       <section id='details' className='page'>
-        <h1 className='exchange-name'>{ this.props.match.params.symbol }</h1>
-        {
-          ( !this.props.isGraphLoaded && !this.props.isDataLoaded )
-          &&
-          <Loader />
-        }
-        {
-          this.props.coin
-          &&
-          <div className='stats'>
-            <h2 className='current-price'>{`$${this.props.coin.currentPrice}`}</h2>
-            <h2 className='percent-change'>{`${round(this.props.coin.percentage, 2)}%`}</h2>
-          </div>
-        }
-        {
-          this.props.coin
-          &&
-          this.props.coin.graph
-          &&
-          <Graph coin={ this.props.coin }/>
-        }
-        {
-          this.props.coin
-          &&
-          <div className='buttons'>
-            <button>BUY</button>
-            <button>SELL</button>
-          </div>
-        }
-        {
-          false
-          &&
-          this.props.user
-          &&
-          this.props.coin
-          &&
-          <AutomationBasic getRisk={this.getRisk.bind(this)} onRiskChange={this.onRiskChange.bind(this)}/>
-        }
-        {
-          this.props.user
-          &&
-          <UserAssetDetails user={this.props.user} coin={this.props.coin}/>
-        }
+        <div className='card'>
+          <h1 className='exchange-name'>{ this.props.match.params.symbol }</h1>
+          {
+            ( !this.props.isGraphLoaded && !this.props.isDataLoaded )
+            &&
+            <Loader />
+          }
+          {
+            this.props.coin
+            &&
+            <div className='stats'>
+              <h2 className='current-price'>{`$${this.props.coin.currentPrice}`}</h2>
+              <h2 className='percent-change'>{`${round(this.props.coin.percentage, 2)}%`}</h2>
+            </div>
+          }
+          {
+            this.props.coin
+            &&
+            this.props.coin.graph
+            &&
+            <Graph coin={ this.props.coin }/>
+          }
+        </div>
       </section>
     )
   }
