@@ -24,6 +24,11 @@ import {
 
 
 class App extends Component {
+
+  getUser() {
+
+  }
+
   render(){
     return(
       <ConnectedRouter history={history}>
@@ -36,6 +41,7 @@ class App extends Component {
               &&
               <div className='btn-close-drawer' onClick={this.props.toggleDrawer}></div>
             }
+            <div className='bg-color'></div>
             <div className='content'>
               <Switch>
                 <Route exact path='/' component={Market} />
