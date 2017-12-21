@@ -29,7 +29,7 @@ class Login extends Component {
       )
     }
     return (
-      <div>
+      <div className='card'>
         {
           this.props.status !== 'VALID_CODE'
           &&
