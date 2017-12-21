@@ -1,11 +1,10 @@
-import { ACCESS_GRANTED, AUTH_ERROR, SUBMIT_PHONE_NUMBER, SUBMIT_VERIFICATION_CODE, SET_LOGIN_STATE, SET_LOGIN_QUERY, SET_CODE, SET_PHONE_NUMBER } from './actions'
+import { AUTH_ERROR, SUBMIT_PHONE_NUMBER, SUBMIT_VERIFICATION_CODE, SET_LOGIN_STATE, SET_LOGIN_QUERY, SET_CODE, SET_PHONE_NUMBER } from './actions'
 
 const initialState = {
   status: false,
-  phoneNumber: '9172878273',
+  phoneNumber: '',
   code: '',
   error: null,
-  accessToken: null
 }
 
 export default (state = initialState, action) => {
@@ -15,13 +14,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         error: action.error,
-      }
-
-    case ACCESS_GRANTED:
-      return {
-        ...state,
-        status: action.status,
-        accessToken: action.accessToken
       }
 
     case SET_LOGIN_STATE:

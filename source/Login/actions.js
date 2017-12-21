@@ -30,10 +30,9 @@ export const setStatus = ({ status }) => ( dispatch, getState ) => {
 }
 
 export const onSubmitPhoneNumber = ( phoneNumber ) => async ( dispatch, getState ) => {
-  console.log('onSubmitPhoneNumber', phoneNumber)
+  setUserLocalStorage({ phoneNumber: phoneNumber })
   try {
     let res = await authSendPhoneNumber({ phoneNumber })
-    console.log( 'onSubmitPhoneNumber 2', res)
 		dispatch({
 			type: SET_LOGIN_STATE,
 			status: 'VALID_PHONE_NUMBER',
@@ -46,9 +45,10 @@ export const onSubmitPhoneNumber = ( phoneNumber ) => async ( dispatch, getState
   }
 }
 
-export const onSubmitCode = ( phoneNumber, code ) => async ( dispatch, getState ) => {
+export const validateCodeGetAccessToken = ( phoneNumber, code ) => async ( dispatch, getState ) => {
   try {
     let res = await authSendCode({ phoneNumber, code })
+    setUserLocalStorage({ phoneNumber: phoneNumber, accessToken: res.body.accessToken })
     dispatch({
       type: ACCESS_GRANTED,
       status: 'VALID_CODE',

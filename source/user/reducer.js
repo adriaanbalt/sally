@@ -1,8 +1,12 @@
-import { SET_RISK_PERCENTAGE_BY_SYMBOL, SET_PORTFOLIO } from './actions'
+import { SET_RISK_PERCENTAGE_BY_SYMBOL, SET_PORTFOLIO, GET_USER } from './actions'
+import { ACCESS_GRANTED } from '../Login/actions'
 
 const initialState = {
   defaultRisk: 50,
-  portfolio: [],
+  name: null, // user's name (optional)
+  phoneNumber: null, // id && phone number 
+  accessToken: null, // token
+  portfolios: [],
 }
 
 export default (state = initialState, action) => {
@@ -14,6 +18,18 @@ export default (state = initialState, action) => {
         portfolio: action.portfolio,
       }
     }
+
+    case GET_USER: 
+      return {
+        ...state,
+        ...action.user,
+      }
+
+    case ACCESS_GRANTED: 
+      return {
+        ...state,
+        accessToken:action.accessToken
+      }
 
     case SET_RISK_PERCENTAGE_BY_SYMBOL: {
       let found = false

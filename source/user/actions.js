@@ -1,11 +1,12 @@
 import { debounce } from 'lodash'
 
-import { setUserLocalStorage } from '../API'
+import { setUserLocalStorage,getUserLocalStorage, getUser } from '../API'
 
 export const SET_PORTFOLIO = 'SET_PORTFOLIO'
 export const SET_RISK_PERCENTAGE_BY_SYMBOL = 'SET_RISK_PERCENTAGE_BY_SYMBOL'
 export const SET_ACCESS_TOKEN = 'SET_ACCESS_TOKEN'
 export const AUTH_ERROR = 'AUTH_ERROR'
+export const GET_USER = 'GET_USER'
 
 export const setPortfolio = ({ portfolio }) => ( dispatch, getState ) => {
   dispatch({
@@ -23,25 +24,23 @@ export const setRiskPercentageBySymbol = ({ symbol, risk }) => ( dispatch, getSt
   debounce( () => getAutomationPreviewBySymbol({ symbol, risk }), 1000 )
 }
 
-export const validateAccessToken = ( phoneNumber, code ) => async ( dispatch, getState ) => {
-  try {
-    let res = await authSendCode({ phoneNumber, code })
-    console.log( 'validateAccessToken')
-    dispatch({
-      type: SET_ACCESS_TOKEN,
-      status: 'VALID_CODE',
-      accessToken: res.body.accessToken
-    })
-    return res.body.accessToken
-  } catch( err ){
-    dispatch({
-      type: AUTH_ERROR,
-      error: err.message,
-    })
-  }
+export const setUserLocal = ( userObj ) => async ( dispatch, getState ) => {
+	// console.log('setUserLocal', userObj)
+	setUserLocalStorage( userObj )
 }
 
-export const setUserLocal = ( userObj ) => async ( dispatch, getState ) => {
-	console.log('setUserLocal', userObj)
-	setUserLocalStorage( userObj )
+export const getUserDataFromApi = () => async ( dispatch, getState ) => {
+	let res = getUser( getState().userReducer )
+	dispatch({
+      type: GET_USER,
+      user: res,
+    })
+}
+
+export const getUserDataFromLocalStorage = () => async ( dispatch, getState ) => {
+	let res = getUserLocalStorage()
+	dispatch({
+      type: GET_USER,
+      user: res,
+    })
 }
