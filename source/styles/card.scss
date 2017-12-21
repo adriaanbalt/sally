@@ -1,0 +1,13 @@
+.card {
+	width: 100%;
+	position: relative;
+	border-radius: 5px;
+	padding: $padding;
+    box-sizing: border-box;
+    background: $color-bg-card;
+    color: $color-font;
+    margin: 10px 0;
+	box-shadow: 0px 4px 15px #999;
+	vertical-align: middle;
+    @include clearFix();
+}

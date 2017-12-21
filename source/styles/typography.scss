@@ -1,16 +1,15 @@
 h1 {
-	color: $color-purple;
 	font-size: 20px;
 	font-weight: 700;
 	letter-spacing: .6px;
 }
 h2 {
-	color: $color-font;
-
+	font-size: 20px;
+	line-height: 28px;
 }
-h4 {
-	color: $color-font;
+h3 {
 	font-size: 16px;
+	line-height: 24px;
 	font-weight: 400;
 }
 a {
@@ -21,6 +20,7 @@ a {
 }
 p {
 	font-size: 14px;
+	line-height: 24px;
 }
 small {
 	text-decoration: none;
