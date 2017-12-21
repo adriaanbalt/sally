@@ -33,6 +33,7 @@ export const onSubmitPhoneNumber = ( phoneNumber ) => async ( dispatch, getState
   console.log('onSubmitPhoneNumber', phoneNumber)
   try {
     let res = await authSendPhoneNumber({ phoneNumber })
+    console.log( 'onSubmitPhoneNumber 2', res)
 		dispatch({
 			type: SET_LOGIN_STATE,
 			status: 'VALID_PHONE_NUMBER',
@@ -48,7 +49,6 @@ export const onSubmitPhoneNumber = ( phoneNumber ) => async ( dispatch, getState
 export const onSubmitCode = ( phoneNumber, code ) => async ( dispatch, getState ) => {
   try {
     let res = await authSendCode({ phoneNumber, code })
-    
     dispatch({
       type: ACCESS_GRANTED,
       status: 'VALID_CODE',
