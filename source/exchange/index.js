@@ -18,11 +18,13 @@ const Exchange = props => {
       {
         props.data
         &&
-        props.data.sort( (a,b) => {
-          if(a.symbol < b.symbol) return 1;
-          if(a.symbol > b.symbol) return -1;
+        props.data
+        .sort( (a,b) => {
+          if(a.price < b.price) return 1;
+          if(a.price > b.price) return -1;
           return 0;
-        }).map( (coin, index) => {
+        })
+        .map( (coin, index) => {
           return <Coin key={`${coin.symbol}-${index}`} exchange={ props.exchange } {...coin}/>
         })
       }

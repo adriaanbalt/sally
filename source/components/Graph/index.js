@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import MetricsGraphics from 'react-metrics-graphics';
 
 const Graph = (props) => {
-  console.log('graph', props.coin.graph )
   return (
     <div className='container-graph'>
       <MetricsGraphics

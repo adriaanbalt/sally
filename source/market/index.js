@@ -21,7 +21,7 @@ class Market extends Component {
   }
 
   poll() {
-    this.interval =setInterval( this.props.getMarket, 10000 )
+    this.interval =setInterval( this.props.getMarket, 1000 )
     this.props.getMarket()
   }
 

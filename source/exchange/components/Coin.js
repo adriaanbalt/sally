@@ -9,7 +9,7 @@ const Coin = (props) => {
 	// need percent change
 	return (
 		<Link to={`/${props.id}`} className='row columns'>
-			<span className="name">{ replace( props.symbol, props.exchange, '') }</span>
+			<span className="name">{ props.id }</span>
 			<span className={`quantity currentPrice`}>{ props.price }</span>
 		</Link>
 	)
