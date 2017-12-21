@@ -9,7 +9,10 @@ const Drawer = (props) => (
       <nav>
         <ul>
           <li>
-            <Link to='/watchlist' className='btn-about' onClick={props.closeDrawer}>Watchlist</Link>
+            <Link to='/' className='btn-about' onClick={props.closeDrawer}>Coins</Link>
+          </li>
+          <li>
+            <Link to='/user' className='btn-about' onClick={props.closeDrawer}>Profile</Link>
           </li>
           <li>
             <Link to='/about' className='btn-about' onClick={props.closeDrawer}>About</Link>
