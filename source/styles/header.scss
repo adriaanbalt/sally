@@ -1,6 +1,7 @@
 header {
-	position: fixed;
-  background: $color-bg;
+	// position: fixed;
+  // background: $color-bg-body;
+  transition: all 500ms;
   z-index: 1000;
 	width: 100%;
   top: 0;
@@ -41,7 +42,7 @@ header {
   }
 	.logo {
 		position: relative;
-	  width: 40px;
+	  width: 50px;
 	}
 	nav {
 		a {

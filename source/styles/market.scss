@@ -10,14 +10,13 @@
 	.row { 
 		width: 100%;
 		position: relative;
-		padding: 20px 0;
 		border-radius: 5px;
 		padding: 6px 11px;
 	    box-sizing: border-box;
-	    background: $color-purple;
-	    color: $color-white;
-	    margin: .25em 0;
-    	box-shadow: 0px 3px 7px #99B;
+	    background: $color-bg-card;
+	    color: $color-font;
+	    margin: 10px 0;
+    	box-shadow: 0px 4px 15px #999;
     	vertical-align: middle;
 	    @include clearFix();
 	}
@@ -39,14 +38,18 @@
 			font-weight: 700;
 		}
 	}
+	small {
+		text-decoration:none;
+	}
 	.name {
+		font-weight: 700;
 		float: left;
 		line-height: $row-height;
 		vertical-align: middle;
 	}
 	.quantity {
+		font-weight: 700;
 		float: right;
-		display: inline-block;
 		line-height: $row-height;
 		text-align: right;
 	}
