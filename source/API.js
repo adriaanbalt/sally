@@ -22,10 +22,10 @@ const apiRequest = o => {
   });
 }
 
-export const getSummaryBySymbol = ({ symbol }) => apiRequest(Object.assign({}, 
+export const getSummaryBySymbol = ({ symbol }) => apiRequest(Object.assign({},
     { 
       verb: 'GET', 
-      route: `https://` 
+      route: `${Constants.API}/1/summary/crypto/${symbol}` 
     }))
 
 export const getRecordsBySymbol = ({ symbol, period, length }) => apiRequest(Object.assign({}, 
