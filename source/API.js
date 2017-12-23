@@ -55,19 +55,28 @@ export const getEstimatedReturnsBySymbol = ({symbol}) => apiRequest(Object.assig
 export const authSendPhoneNumber = ({ phoneNumber }) => apiRequest(Object.assign({}, 
     { 
       verb: 'POST', 
-      route: `https://automate.bloo.financial/api/login`, body: { phoneNumber } 
+      route: `https://automate.bloo.financial/api/login`, body: { phoneNumber },
     }))
 
 export const authSendCode = ({ phoneNumber, code }) => apiRequest(Object.assign({}, 
     { 
       verb: 'POST', 
-      route: `https://automate.bloo.financial/api/login`, body: { phoneNumber, code } 
+      route: `https://automate.bloo.financial/api/login`, body: { phoneNumber, code },
     }))
 
 export const getUser = ({ accessToken }) => apiRequest(Object.assign({}, 
     { 
       verb: 'GET', 
-      route: `https://automate.bloo.financial/api/user-data`, headers: { 'Access-Token': accessToken } 
+      route: `https://automate.bloo.financial/api/user-data`, 
+      headers: { 'Access-Token': accessToken }, 
+    }))
+
+export const updateUser = ({ accessToken, phoneNumber }) => apiRequest(Object.assign({}, 
+    { 
+      verb: 'POST', 
+      route: `https://automate.bloo.financial/api/user-data`, 
+      headers: { 'Access-Token': accessToken },
+      body: { phoneNumber },
     }))
 
 
