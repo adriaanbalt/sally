@@ -15,17 +15,17 @@ import {
 
 class User extends Component {
 
-  componentWillMount() {
+  async componentWillMount() {
     if ( this.props.user.accessToken ) {
       this.props.getUserDataFromApi()
     } 
     else if ( !this.props.user.accessToken ){
-      this.props.getUserDataFromLocalStorage()
+      await this.props.getUserDataFromLocalStorage()
+      this.props.getUserDataFromApi()
     }
   }
 
   render() {
-    console.log('user', this.props.user)
     return(
       <section id='user' className='page'>
         {
