@@ -7,11 +7,12 @@ import { Link } from 'react-router-dom'
 import { round } from 'lodash'
 
 import Loader from '../components/Loader'
-import Graph from '../components/Graph'
-
 
 import UserAssetDetails from './components/UserAssetDetails'
 import AutomationBasic from './components/automation/Basic'
+
+import Orders from './components/Orders'
+import Strategy from './components/Strategy'
 
 import {
   setSummaryBySymbol,
@@ -65,7 +66,6 @@ class Details extends Component {
   }
 
   render() {
-    console.log('this.props', this.props)
     return(
       <section id='details' className='page'>
         <div className='card'>
@@ -84,11 +84,14 @@ class Details extends Component {
             </div>
           }
           {
+            this.props.user
+            &&
+            <Orders { ...this.props.user } />
+          }
+          {
             this.props.coin
             &&
-            this.props.coin.graph
-            &&
-            <Graph coin={ this.props.coin }/>
+            <Strategy coin={ this.props.coin }/>
           }
         </div>
       </section>

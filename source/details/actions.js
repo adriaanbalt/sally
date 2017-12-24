@@ -28,7 +28,16 @@ export const getAutomationPreview = ({ symbol, risk }) => async ( dispatch, getS
   // })
 }
 
+export const getCoinFromUser = ({ user }) => async ( dispatch, getState ) => {
+  let orders = user.portfolios[  ].positions.orders
+  dispatch({
+    type: SET_ORDERS,
+    orders: user.portfolios.positions.orders
+  })
+}
+
 const parseISOString = (s) => {
   var b = s.split(/\D+/);
   return new Date(Date.UTC(b[0], --b[1], b[2], b[3], b[4], b[5], b[6]));
 }
+
