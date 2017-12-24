@@ -2,7 +2,6 @@ import { SET_RISK_PERCENTAGE_BY_SYMBOL, SET_PORTFOLIO, GET_USER } from './action
 import { ACCESS_GRANTED } from '../Login/actions'
 
 const initialState = {
-  defaultRisk: 50,
   name: null, // user's name (optional)
   phoneNumber: null, // id && phone number 
   accessToken: null, // token
