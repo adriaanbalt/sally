@@ -1,17 +1,25 @@
 {
-	"name": "",
-	"phoneNumber": "",
-	"accessToken": "",
+	"name": "", // user's name (optional)
+	"phoneNumber": "", // id && phone number 
+	"accessToken": "", // token
 	"portfolios": [
 		{
+			"id":"",
 			"value": "", // total value
-			"percent": "",
+			"price": "", // total purchase price
 			"positions" : [
 				{
-					"symbol": "",
-					"value": "",
-					"price": "",
-					"percent": ""
+					"symbol": "", // ref to asset by symbol
+					"value": "", // current value of asset
+					"price": "", // purchase price
+					"strategy": "", // ref to algo
+					"orders": [  // ref to algo
+						{
+							"date": "", // date order was made
+							"amount": "", // amount of coin 
+							"price": "" // price of individual coin
+						}
+					],
 				}
 			]
 		}
