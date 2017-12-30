@@ -65,7 +65,13 @@ class Details extends Component {
     return this.props.user.defaultRisk
   }
 
+  getOrdersBySymbol() {
+    return this.props.user.portfolios[ this.props.user.currentPortfolioIndex ].positions
+      .filter( position => (position.baseCurrency === this.props.coin.baseCurrency && position.purchaseCurrency === this.props.coin.purchaseCurrency ) )[0].orders
+  }
+
   render() {
+    console.log('details', this.props.coin )
     return(
       <section id='details' className='page'>
         <div className='card'>
@@ -86,7 +92,9 @@ class Details extends Component {
           {
             this.props.user
             &&
-            <Orders { ...this.props.user } />
+            this.props.coin
+            &&
+            <Orders orders={ this.getOrdersBySymbol() } />
           }
           {
             this.props.coin

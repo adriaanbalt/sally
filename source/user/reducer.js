@@ -5,7 +5,34 @@ const initialState = {
   name: null, // user's name (optional)
   phoneNumber: null, // id && phone number 
   accessToken: null, // token
-  portfolios: [],
+  currentPortfolioIndex: 0,
+  portfolios: [
+    {
+      id: "001",
+      name: "Custom Portfolio Name",
+      value: 1000, // total value
+      price: 500, // total purchase price
+      positions : [
+        {
+          baseCurrency: "USDT",
+          baseCurrencyLong: "US Dollar Tender",
+          purchaseCurrency: "BTC",
+          purchaseCurrencyLong: "Bitcoin",
+          value: 1000, // current value of asset
+          price: 500, // purchase price
+          strategy: "", // ref to algo
+          orders: [  // ref to algo
+            {
+              date: "Jan 1, 2018", // date order was made
+              quantity: 1, // quantity of coin 
+              price: 500 // price of individual coin when purchased
+            }
+          ],
+        }
+      ]
+    }
+  ]
+
 }
 
 export default (state = initialState, action) => {
