@@ -30,7 +30,12 @@ export const setStatus = ({ status }) => ( dispatch, getState ) => {
 }
 
 export const onSubmitPhoneNumber = ( phoneNumber ) => async ( dispatch, getState ) => {
-  setUserLocalStorage({ phoneNumber: phoneNumber })
+  let newUserObject = Object.assign({
+    getState().userReducer,
+    { phoneNumber: phoneNumber }
+  })
+  console.log('newUserObject', newUserObject)
+  setUserLocalStorage( newUserObject )
   try {
     let res = await authSendPhoneNumber({ phoneNumber })
 		dispatch({
