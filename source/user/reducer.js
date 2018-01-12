@@ -6,6 +6,28 @@ const initialState = {
   phoneNumber: null, // id && phone number 
   accessToken: null, // token
   currentPortfolioIndex: 0,
+  "settings" : {
+    "exchanges": [
+      {
+        "id":"binance",
+        "name":"Binance"
+      },
+      {
+        "id":"bittrex",
+        "name":"Bittrex"
+      }
+    ],
+    "notifications": [
+      {
+        "id":"binance",
+        "name":"Binance"
+      },
+      {
+        "id":"bittrex",
+        "name":"Bittrex"
+      }
+    ],
+  },
   portfolios: [
     {
       id: "001",
@@ -32,7 +54,6 @@ const initialState = {
       ]
     }
   ]
-
 }
 
 export default (state = initialState, action) => {
