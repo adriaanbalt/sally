@@ -8,7 +8,7 @@ import { round } from 'lodash'
 
 import Loader from '../components/Loader'
 
-import UserAssetDetails from './components/UserAssetDetails'
+import UserAssetDetails from '../components/User/AssetDetails'
 import AutomationBasic from './components/automation/Basic'
 
 import Orders from './components/Orders'
