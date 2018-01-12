@@ -30,6 +30,7 @@
   "scripts": {
     "analyze": "webpack-dev-server -d --inline --hot --config $npm_package_config_build_scripts_dir/webpack/webpack.analyze.config.js --watch --progress",
     "start": "webpack-dev-server -d --inline --hot --config $npm_package_config_build_scripts_dir/webpack/webpack.dev.config.js --watch --progress",
+    "watch": "webpack-dev-server -d --inline --hot --config $npm_package_config_build_scripts_dir/webpack/webpack.dev.config.js --watch --progress",
     "build": "webpack -d --config $npm_package_config_build_scripts_dir/webpack/webpack.prod.config.js",
     "prod": "node server"
   },
