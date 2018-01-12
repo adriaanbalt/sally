@@ -9,20 +9,40 @@ import Login from '../Login'
 import UserDetails from './components/UserDetails'
 
 import {
-  getUserDataFromApi,
-  getUserDataFromLocalStorage,
+  setUserLocal,
+  getUserDataFromApiAndSave,
+  getUserDataFromLocalStorageAndSave,
 } from './actions'
 
 class User extends Component {
 
   async componentWillMount() {
     if ( this.props.user.accessToken ) {
-      this.props.getUserDataFromApi()
+      this.props.getUserDataFromApiAndSave()
     } 
     else if ( !this.props.user.accessToken ){
-      await this.props.getUserDataFromLocalStorage()
-      this.props.getUserDataFromApi()
+      // get user's locally stored access tokeAndSaven
+      let userObj = await this.props.getUserDataFromLocalStorageAndSave()
+      console.log('User componentWillMount userObj', userObj)
+      if ( userObj.accessToken ) {
+        // if user has an access token then data can be retreive
+        this.props.getUserDataFromApiAndSave()
+      }
+      else {
+        // if user does not have an access token then they must register or login
+      }
     }
+  }
+
+  createUser() {
+
+  }
+
+  toggleNotificationSetting( type ) {
+    console.log( 'toggleNotificationSetting', type )
+  }
+  toggleExchangeSetting( type ) {
+    console.log( 'toggleExchangeSetting', type )
   }
 
   render() {
@@ -36,7 +56,7 @@ class User extends Component {
         {
           this.props.user.accessToken
           &&
-          <UserDetails {...this.props.user} />
+          <UserDetails {...this.props.user} toggleNotificationSetting={ this.toggleNotificationSetting.bind(this) } toggleExchangeSetting={ this.toggleExchangeSetting.bind(this) } />
         }
       </section>
     )
@@ -48,8 +68,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getUserDataFromApi,
-  getUserDataFromLocalStorage,
+  getUserDataFromApiAndSave,
+  getUserDataFromLocalStorageAndSave,
 }, dispatch)
 
 export default connect(

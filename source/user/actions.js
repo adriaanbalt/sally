@@ -6,7 +6,7 @@ export const SET_PORTFOLIO = 'SET_PORTFOLIO'
 export const SET_RISK_PERCENTAGE_BY_SYMBOL = 'SET_RISK_PERCENTAGE_BY_SYMBOL'
 export const SET_ACCESS_TOKEN = 'SET_ACCESS_TOKEN'
 export const AUTH_ERROR = 'AUTH_ERROR'
-export const GET_USER = 'GET_USER'
+export const SET_USER_OBJECT = 'SET_USER_OBJECT'
 
 export const setPortfolio = ({ portfolio }) => ( dispatch, getState ) => {
   dispatch({
@@ -29,18 +29,19 @@ export const setUserLocal = ( userObj ) => async ( dispatch, getState ) => {
 	setUserLocalStorage( userObj )
 }
 
-export const getUserDataFromApi = () => async ( dispatch, getState ) => {
+export const getUserDataFromApiAndSave = () => async ( dispatch, getState ) => {
 	let res = getUser( getState().userReducer )
 	dispatch({
-      type: GET_USER,
+      type: SET_USER_OBJECT,
       user: res,
     })
 }
 
-export const getUserDataFromLocalStorage = () => async ( dispatch, getState ) => {
+export const getUserDataFromLocalStorageAndSave = () => async ( dispatch, getState ) => {
 	let res = getUserLocalStorage()
 	dispatch({
-      type: GET_USER,
+      type: SET_USER_OBJECT,
       user: res,
     })
+  return res
 }
