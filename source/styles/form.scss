@@ -1,0 +1,15 @@
+.input-wrapper {
+    margin: $padding;
+}
+input {
+	display: block;
+    padding: $padding;
+    border: 0;
+    width: 100%;
+    box-sizing: border-box;
+    &:first-child {
+    	margin-top: 0;
+    }
+    margin: 1em 0;
+    border-bottom: 1px solid #ddd;
+}

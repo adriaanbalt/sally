@@ -5,18 +5,28 @@ import { connect } from 'react-redux'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 import { round } from 'lodash'
-import moment from 'moment'
-import { VictoryChart, VictoryLine, VictoryAxis, VictoryCandlestick, VictoryTheme } from 'victory'
 
-import Constants from '../constants'
 import Loader from '../components/Loader'
+
+import UserAssetDetails from '../components/User/AssetDetails'
+import AutomationBasic from './components/automation/Basic'
+
+import Orders from './components/Orders'
+import Strategy from './components/Strategy'
 
 import {
   setSummaryBySymbol,
-  loadGraphDataBySymbol
+  loadGraphDataBySymbol,
+  getAutomationPreview,
+  getEstimatedReturns
 } from './actions'
 
+import {
+  setRiskPercentageBySymbol
+} from '../User/actions'
+
 class Details extends Component {
+
   componentWillMount() {
     this.poll()
   }
@@ -31,68 +41,67 @@ class Details extends Component {
   }
 
   poll() {
-    this.interval = setInterval( () => this.getData(), 10000 )
+    // this.interval = setInterval( () => this.getData(), 10000 )
     this.getData()
   }
 
+  onRiskChange( e ) {
+    this.props.setRiskPercentageBySymbol({ symbol: this.props.coin.symbol, risk: e.target.value })
+    this.queue();
+  }
+
+  queue() {
+    if ( this.timeout ) {
+      clearTimeout( this.timeout )
+    }
+    this.timeout = setTimeout( () => this.props.getAutomationPreview({ symbol: this.props.coin.symbol, risk: this.getRisk() }), 100 )
+  }
+
+  getRisk() {
+    let asset = this.props.user.portfolio.find( asset => asset.symbol === this.props.coin.symbol )
+    if ( asset ) {
+      return asset.risk 
+    }
+    return this.props.user.defaultRisk
+  }
+
+  getOrdersBySymbol() {
+    return this.props.user.portfolios[ this.props.user.currentPortfolioIndex ].positions
+      .filter( position => (position.baseCurrency === this.props.coin.baseCurrency && position.purchaseCurrency === this.props.coin.purchaseCurrency ) )[0].orders
+  }
+
   render() {
+    console.log('details', this.props.coin )
     return(
-      <section id='details'>
-        <Link to='/' className='btn-back'>back</Link>
-        <h1 className='exchange-name'>{ this.props.match.params.symbol }</h1>
-        {
-          this.props.coin
-          &&
-          <div className="lastUpdate">
-            <p>Last Update</p>
-            <h3>{ moment( this.props.coin.now ).format( "H:mm:ss MM/D/YY" ) }</h3>
-          </div>
-        }
-        {
-          ( !this.props.isGraphLoaded && !this.props.isDataLoaded )
-          &&
-          <Loader />
-        }
-        {
-          this.props.coin
-          &&
-          this.props.coin.graph
-          &&
-          <div className='container-graph'>
-            <VictoryChart>
-              <VictoryAxis 
-                tickFormat={(t) => `${new Date(t).getMonth()}/${new Date(t).getDate()}`} 
-                style={{
-                  axis: {stroke: Constants.COLOR_GRAPH},
-                  tickLabels: {fill: Constants.COLOR_GRAPH, fontSize: 10, padding: 5}
-                }}
-              />
-              <VictoryAxis 
-                dependentAxis 
-                style={{
-                  fill: Constants.COLOR_GRAPH,
-                  axis: {stroke: Constants.COLOR_GRAPH},
-                  tickLabels: {fill: Constants.COLOR_GRAPH, fontSize: 10, padding: 5}
-                }}
-              />
-              <VictoryLine
-                style={{
-                  data: { stroke: Constants.COLOR_GRAPH, strokeWidth: 1 }
-                }}
-                data={this.props.coin.graph} />
-            </VictoryChart>
-          </div>
-        }
-        {
-          this.props.coin
-          &&
-          <div className='stats'>
-            <p>Current Price</p>
-            <h2>{ this.props.coin.currentPrice }</h2>
-            <p>24 Hour Percentage</p>
-            <h2>{`${round(this.props.coin.percentage, 2)}%`}</h2>
-          </div>
-        }
+      <section id='details' className='page'>
+        <div className='card'>
+          <h1 className='exchange-name'>{ this.props.match.params.symbol }</h1>
+          {
+            ( !this.props.isGraphLoaded && !this.props.isDataLoaded )
+            &&
+            <Loader />
+          }
+          {
+            this.props.coin
+            &&
+            <div className='stats'>
+              <h2 className='current-price'>{`$${this.props.coin.currentPrice}`}</h2>
+              <h2 className='percent-change'>{`${round(this.props.coin.percentage, 2)}%`}</h2>
+            </div>
+          }
+          {
+            this.props.user
+            &&
+            this.props.coin
+            &&
+            <Orders orders={ this.getOrdersBySymbol() } />
+          }
+          {
+            this.props.coin
+            &&
+            <Strategy coin={ this.props.coin }/>
+          }
+        </div>
       </section>
     )
   }
@@ -101,12 +110,16 @@ class Details extends Component {
 const mapStateToProps = state => ({
   coin: state.detailsReducer.currentCoin,
   isDataLoaded: state.detailsReducer.isDataLoaded,
-  isGraphLoaded: state.detailsReducer.isGraphLoaded
+  isGraphLoaded: state.detailsReducer.isGraphLoaded,
+  user: state.userReducer,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   setSummaryBySymbol,
   loadGraphDataBySymbol,
+  setRiskPercentageBySymbol,
+  getAutomationPreview,
+  getEstimatedReturns,
 }, dispatch)
 
 export default connect(

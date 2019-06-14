@@ -13,6 +13,8 @@ import Drawer from 'components/Drawer'
 import Market from 'source/market'
 import About from 'source/about'
 import Details from 'source/details'
+import User from 'source/User'
+import Login from 'source/Login'
 import NotFound from 'source/NotFound'
 
 import {
@@ -22,23 +24,34 @@ import {
 
 
 class App extends Component {
+
+  getUser() {
+
+  }
+
   render(){
     return(
       <ConnectedRouter history={history}>
         <main className={`${this.props.isDrawerOpen ? 'drawer-open': '' }`}>
           <Drawer closeDrawer={()=>this.props.toggleDrawer(false)} isOpen={this.props.isDrawerOpen} switchExchange={this.props.switchExchange} whichExchange={this.props.whichExchange}/>
+          <Header toggleDrawer={this.props.toggleDrawer} isOpen={this.props.isDrawerOpen}/>
           <div className={`wrapper`}>
-            <Header toggleDrawer={this.props.toggleDrawer} isOpen={this.props.isDrawerOpen}/>
-            <div className='inner'>
-              <div className='content'>
-                <Switch>
-                  <Route exact path='/' component={Market} />
-                  <Route path='/about' component={About} />
-                  <Route path='/:symbol' component={Details} />
-                  <Route component={NotFound} />
-                </Switch>
-                <Footer />
-              </div>
+            {
+              this.props.isDrawerOpen
+              &&
+              <div className='btn-close-drawer' onClick={this.props.toggleDrawer}></div>
+            }
+            <div className='bg-color'></div>
+            <div className='content'>
+              <Switch>
+                <Route exact path='/' component={Market} />
+                <Route path='/about' component={About} />
+                <Route path='/login' component={Login} />
+                <Route path='/user' component={User} />
+                <Route path='/:symbol' component={Details} />
+                <Route component={NotFound} />
+              </Switch>
+              <Footer />
             </div>
           </div>
         </main>

@@ -1,14 +1,10 @@
 header {
-	position: fixed;
-  background: $color-bg;
+	// position: fixed;
+  // background: $color-bg-body;
+  transition: all 500ms;
   z-index: 1000;
 	width: 100%;
-	.inner {
-    top: 0;
-    position: absolute;
-    width: 100%;
-    height: $nav-height;
-	}
+  top: 0;
   .line {
   	background-color: $color-gray-light;
   	height: 1px;
@@ -46,7 +42,7 @@ header {
   }
 	.logo {
 		position: relative;
-	  width: 60px;
+	  width: 50px;
 	}
 	nav {
 		a {

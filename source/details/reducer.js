@@ -27,6 +27,10 @@ export default (state = initialState, action) => {
     		}
     	}
 
+    // delete order
+    // edit order
+    // add order
+
     default:
       return state
   }

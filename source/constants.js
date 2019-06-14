@@ -1,5 +1,6 @@
 export default {
-	API: `https://app-production.bloo.financial/api`,
+	DOMAIN: ``,
+	API: `https://app-staging.bloo.financial/api`,
 	API_VERSION: `1`,
 	API_WWW: `https://www.bloo.financial/api`,
 	API_WWW_VERSION: `2`,
