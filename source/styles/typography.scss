@@ -1,19 +1,28 @@
 h1 {
-	color: $color-purple;
 	font-size: 20px;
 	font-weight: 700;
 	letter-spacing: .6px;
 }
 h2 {
-	color: $color-white;
-
+	font-size: 20px;
+	line-height: 28px;
 }
-h4 {
-	color: $color-white;
+h3 {
 	font-size: 16px;
+	line-height: 24px;
 	font-weight: 400;
 }
 a {
 	font-size: 18px;
-	color: $color-white;
+	color: $color-font;
+	// font-weight: 700;
+	text-decoration: none;
+}
+p {
+	font-size: 14px;
+	line-height: 24px;
+}
+small {
+	text-decoration: none;
+	font-size: 8px;
 }

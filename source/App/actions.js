@@ -10,6 +10,7 @@ export const switchExchange = ( newExchange ) => {
     })
   }
 }
+
 export const toggleDrawer = ( isDrawerOpen ) => dispatch => {
   dispatch({
     type: TOGGLE_DRAWER,

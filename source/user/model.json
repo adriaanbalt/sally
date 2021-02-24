@@ -1,0 +1,49 @@
+export default DATA  {
+	name: "",
+	phoneNumber: "",
+	accessToken: "",
+	settings: {
+		exchanges: [
+			{
+				id:"binance",
+				name:"Binance"
+			},
+			{
+				id:"bittrex",
+				name:"Bittrex"
+			}
+		],
+		notifications: [
+			{
+				id:"binance",
+				name:"Binance"
+			},
+			{
+				id:"bittrex",
+				name:"Bittrex"
+			}
+		],
+	},
+	portfolios: [
+		{
+			id:"",
+			value: "",
+			price: "",
+			positions: [
+				{
+					symbol: "",
+					value: "",
+					price: "",
+					strategy: "",
+					orders: [ 
+						{
+							date: "",
+							amount: "",
+							price: ""
+						}
+					],
+				}
+			]
+		}
+	]
+}

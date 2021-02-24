@@ -1,0 +1,53 @@
+#market {
+	.columns {
+		&.columns-header {
+			border-bottom: 2px solid $color-purple;
+		}
+	}
+	.row { 
+		width: 100%;
+		position: relative;
+		border-radius: 5px;
+		padding: 6px 11px;
+	    box-sizing: border-box;
+	    background: $color-bg-card;
+	    color: $color-font;
+	    margin: 10px 0;
+    	box-shadow: 0px 4px 15px #999;
+    	vertical-align: middle;
+	    @include clearFix();
+	}
+	.columns-header {
+		width: 100%;
+		height: $row-height;
+		position: relative;
+		padding: 35px 0 0 0;
+		border-bottom: 1px $color-font solid;
+		.name {
+			font-size: 15px;
+		}
+		.quantities {
+			.quantity {
+				font-size: 15px;
+			}
+		}
+		&:hover {
+			font-weight: 700;
+		}
+	}
+	small {
+		text-decoration:none;
+	}
+	.name {
+		font-weight: 700;
+		float: left;
+		line-height: $row-height;
+		vertical-align: middle;
+	}
+	.quantity {
+		font-weight: 700;
+		float: right;
+		line-height: $row-height;
+		text-align: right;
+	}
+}

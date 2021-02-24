@@ -1,9 +1,8 @@
-import { TOGGLE_DRAWER, SWITCH_EXCHANGE } from './actions'
+import { SET_MARKET, TOGGLE_DRAWER, SWITCH_EXCHANGE } from './actions'
 
 const initialState = {
   isDrawerOpen: false,
-  isLoading: true,
-  whichExchange: 'gemini'
+  whichExchange: 'bittrex'
 }
 
 export default (state = initialState, action) => {
